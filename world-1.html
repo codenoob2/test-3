@@ -35,9 +35,36 @@
             this.gold = 0;
             allSprites.push(this);
           }
+          
+          decideAction() {
+            console.log("Object does not override decideAction " + this);
+          }
         }
         
         class Player extends Sprite {
+          decideAction() {
+            if (this.command == "go left") {
+              console.log("left");
+              this.dx -= 1;
+              this.element.style.transform = "scaleX(1)";
+            } else if (this.command == "go right") {
+              console.log("right");
+              this.dx += 1;
+              this.element.style.transform = "scaleX(-1)";
+            } else if (this.command == "jump" && this.dy > -1 && this.dy < 1) {
+              console.log("up");
+              this.dy -= 15;
+              this.state = "jump!";
+            } else if (this.command == "attack") {
+              this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
+              window.setTimeout(function () { this.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
+            } else if (this.command == "wait") {
+              // Do nothing, and don't log it as an unknown command.
+            } else {
+              console.log("unknown command: " + this.command)
+            }
+          }  // end decideAction
+          
         }
 
         class Enemy extends Sprite {
@@ -93,31 +120,9 @@
         let bgBottom = bgTop + bg.offsetHeight;
         let bgRight = bgLeft + bg.offsetWidth;
     
-        function processCommand(player) {
-          if (player.command == "go left") {
-            console.log("left");
-            player.dx -= 1;
-            player.element.style.transform = "scaleX(1)";
-          } else if (player.command == "go right") {
-            console.log("right");
-            player.dx += 1;
-            player.element.style.transform = "scaleX(-1)";
-          } else if (player.command == "jump" && player.dy > -1 && player.dy < 1) {
-            console.log("up");
-            player.dy -= 15;
-            player.state = "jump!";
-          } else if (player.command == "attack") {
-            player.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
-            window.setTimeout(function () { player.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
-          } else if (player.command == "wait") {
-            // Do nothing, and don't log it as an unknown command.
-          } else {
-            console.log("unknown command: " + player.command)
-          }
-        }
     
         function playTurn(player) {
-          processCommand(player);       
+          player.decideAction();
           let newx = player.x;
           let newy = player.y;
           if (player.y + player.height + player.dy > bgBottom) {
