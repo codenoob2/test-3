@@ -186,7 +186,7 @@
         function collision(x, y, myself, opt_className) {
           let solids = document.getElementsByClassName(opt_className || "solid");
           for (let i = 0; i < solids.length; i++) {
-            let solid = solids[iT
+            let solid = solids[i];
             if (solid != myself &&
                 inside(x, y, solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
              return solid; 
