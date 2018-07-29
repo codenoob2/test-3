@@ -57,7 +57,7 @@
               this.state = "jump!";
             } else if (this.command == "attack") {
               this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
-              window.setTimeout(function () { this.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
+              window.setTimeout(function () { player1.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
             } else if (this.command == "wait") {
               // Do nothing, and don't log it as an unknown command.
             } else {
@@ -97,7 +97,6 @@
             player1.command = "jump";
           } else if (e.keyCode == UP_KEY) {
             // Trying to jump but can't jump right now.
-          }
           } else if (e.key == " ") {
             console.log("space");
             player1.command = "attack";
