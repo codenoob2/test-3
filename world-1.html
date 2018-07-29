@@ -33,7 +33,6 @@
         }
         
         let player1 = new Player(100, 100, "player1");
-        let originx = 50, originy = 75;
         let LEFT_KEY = 37;
         let UP_KEY = 38;
         let RIGHT_KEY = 39;
@@ -84,15 +83,17 @@
           if (player.command == "go left") {
             console.log("left");
             player.dx -= 1;
-            player.element.style.transform = "scaleX(-1)";
+            player.element.style.transform = "scaleX(1)";
           } else if (player.command == "go right") {
             console.log("right");
             player.dx += 1;
-            player.element.style.transform = "scaleX(1)";
+            player.element.style.transform = "scaleX(-1)";
           } else if (player.command == "jump" && player.dy > -1 && player.dy < 1) {
             console.log("up");
             player.dy -= 15;
             player.state = "jump!";
+          } else if (player.command == "wait") {
+            // Do nothing, and don't log it as an unknown command.
           } else {
             console.log("unknown command: " + player.command)
           }
@@ -168,8 +169,8 @@
             player.ay = 0;
             state = "blocked";
           }
-          player.element.style.left = (player.x - originx) + "px";
-          player.element.style.top = (player.y - originy) + "px";
+          player.element.style.left = player.x + "px";
+          player.element.style.top = player.y + "px";
           let debug = document.getElementById(player.id + "_debug");
           debug.innerText = player.state + " gold: " + player.gold + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
           player.dx = (player.dx + player.ax) * 0.9;
