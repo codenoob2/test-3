@@ -69,9 +69,9 @@
 
         class Enemy extends Sprite {
           decideAction() {
-            if (this.x > player1.x - 20) {
+            if (this.x > player1.x + 20) {
               this.dx = -4;
-            } else if (this.x < player1.x + 20) {
+            } else if (this.x < player1.x - 20) {
               this.dx = 4;
             } else {
               console.log("should I attack?");
@@ -95,6 +95,9 @@
           } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
             console.log("up");
             player1.command = "jump";
+          } else if (e.keyCode == UP_KEY) {
+            // Trying to jump but can't jump right now.
+          }
           } else if (e.key == " ") {
             console.log("space");
             player1.command = "attack";
