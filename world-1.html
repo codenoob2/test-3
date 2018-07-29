@@ -68,6 +68,15 @@
         }
 
         class Enemy extends Sprite {
+          decideAction() {
+            if (this.x > player1.x - 20) {
+              this.dx = -4;
+            } else if (this.x < player1.x + 20) {
+              this.dx = 4;
+            } else {
+              console.log("should I attack?");
+            }
+          }
         }
     
         let player1 = new Player(100, 100, "player1");
