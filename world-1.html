@@ -17,7 +17,8 @@
   <p id="enemy1_debug"></p>
   
   <script>
-        class Player {
+        let allSprites = [];
+        class Sprite {
           constructor(x, y, image_id) {
             this.x = x;
             this.y = y;
@@ -32,11 +33,18 @@
             this.state = "starting";
             this.command = "wait";
             this.gold = 0;
+            allSprites.push(this);
           }
         }
         
+        class Player extends Sprite {
+        }
+
+        class Enemy extends Sprite {
+        }
+    
         let player1 = new Player(100, 100, "player1");
-        let enemy1 = new Player(100, 100, "enemy1");
+        let enemy1 = new Enemy(100, 100, "enemy1");
         let LEFT_KEY = 37;
         let UP_KEY = 38;
         let RIGHT_KEY = 39;
@@ -74,8 +82,9 @@
         });
         
         setInterval (function () {
-          playTurn(player1);
-          playTurn(enemy1);
+          for (let i = 0; i < allSprites; i++) {
+            playTurn(allSpites[i]);
+          }
         }, 50);
         
         let bg = document.getElementById('bg');
