@@ -1,5 +1,204 @@
 <html>
-<head>
-      <img id="player1" class="solid" src="neverwinter-wars-ranger-1.0-pixilart.png" style="position:absolute; left:500px; top:250px" width=200 height=200>
-</head>
+  <head>
+     <style>
+      .plat { background: black; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
+      .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
+     </style>
+  </head>
+<body>
+  <div id="bg" style="width:1200px; height:700px; background:#eee; border:2px solid black;">
+     <img id="player1" class="solid" src="neverwinter-wars-ranger-1.0-pixilart.png" style="position:absolute; left:500px; top:250px" width=200 height=200>
+  </div> <!-- end bg -->
+  
+  <p id="player1_debug"></p>
+  
+  <script>
+        class Player {
+          constructor(x, y, image_id) {
+            this.x = x;
+            this.y = y;
+            this.id = image_id;
+            this.element = document.getELementById(image_id);
+            this.width = element.offsetWidth;
+            this.height = element.offsetHeight;
+            this.dx = 0;
+            this.dy = 0;
+            this.ax = 0;
+            this.ay = 0;
+            this.state = "starting";
+            this.command = "wait";
+            this.gold = 0;
+          }
+        }
+        
+        let player1 = new Player(100, 100, "player1");
+        let originx = 50, originy = 75;
+        let LEFT_KEY = 37;
+        let UP_KEY = 38;
+        let RIGHT_KEY = 39;
+        let DOWN_KEY = 40;
+        document.addEventListener("keydown", function(e) {
+          if (e.keyCode == LEFT_KEY) {
+            console.log("left");
+            player1.command = "go left";
+          } else if (e.keyCode == RIGHT_KEY) {
+            console.log("right");
+            player1.command = "go right";
+          } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
+            console.log("up");
+            player1.command = "jump";
+          } else if (e.key == " ") {
+            console.log("space");
+            player1.command = "attack";
+          } else {
+            console.log("unbound keydown e.keyCode= " + e.keyCode);
+          }
+        });
+        
+        document.addEventListener("keyup", function(e) {
+          if (e.keyCode == LEFT_KEY) {
+            player1.command = "wait";
+          } else if (e.keyCode == RIGHT_KEY) {
+            player1.command = "wait";
+          } else if (e.keyCode == UP_KEY) {
+            player1.command = "wait";
+          } else if (e.key == " ") {
+            player1.command = "wait";
+          } else {
+            console.log("unbound keyup e.keyCode= " + e.keyCode);
+          }
+        });
+        
+        setInterval (function () {
+          playTurn(player1);
+        }, 50);
+        
+        let bg = document.getElementById('bg');
+        let bgTop = bg.offsetTop;
+        let bgLeft = bg.offsetLeft;
+        let bgBottom = bgTop + bg.offsetHeight;
+        let bgRight = bgLeft + bg.offsetWidth;
+    
+        function processCommand(player) {
+          if (player.command == "go left") {
+            console.log("left");
+            player.dx -= 1;
+            player.element.style.transform = "scaleX(-1)";
+          } else if (player.command == "go right") {
+            console.log("right");
+            player.dx += 1;
+            player.element.style.transform = "scaleX(1)";
+          } else if (player.command == "jump" && player.dy > -1 && player.dy < 1) {
+            console.log("up");
+            player.dy -= 15;
+            player.state = "jump!";
+          } else {
+            console.log("unknown command: " + player.command)
+          }
+        }
+    
+        function playTurn(player) {
+          processCommand(player);       
+          let newx = player.x;
+          let newy = player.y;
+          if (player.y + player.height + player.dy > bgBottom) {
+            player.dy = 0;
+            player.ay = 0;
+            newy = bgBottom - player.height;
+            player.state = "hit floor";
+          } else if (player.y + player.dy < bgTop) {
+            player.dy = 0;
+            player.ay = 0;
+            newy = bgTop;
+            player.state = "hit ceiling";
+          } else {
+            newy = player.y + player.dy;
+          }
+          
+          if (player.x + player.width + player.dx > bgRight) {
+            player.dx = 0;
+            player.ax = 0;
+            newx = bgRight - player.width;
+            player.state = "hit right side";
+          } else if (player.x + player.dx < bgLeft) {
+            player.dx = 0;
+            player.ax = 0;
+            newx = bgLeft;
+            player.state = "hit left side";
+          } else {
+            newx = player.x + player.dx;
+          }
+          if (collision(player.x, player.y, player.element, "wind")) {
+              player.dx -= 1;
+          }
+          newx = newx + player.dx;
+          if (!collision(newx, newy, player.element) 
+              /* || collision(player.x, player.y, player_img) */
+             ) {
+            player.y = newy;
+            player.x = newx;
+            player.state = "floating";
+          } else  if (!collision((player.x + 3 * newx)/4, (player.y + 3 * newy)/4, player.element)) {
+            player.y = (3 * player.y + newy)/4;
+            player.x = (3 * player.x + newx)/4;
+            player.state = "floating";
+          } else  if (!collision((player.x + newx)/2, (player.y + newy)/2, player.element)) {
+            player.y = (player.y + newy)/2;
+            player.x = (player.x + newx)/2;
+            player.state = "floating";
+          } else  if (!collision((3 * player.x + newx)/4, (3 * player.y + newy)/4, player.element)) {
+            player.y = (3 * player.y + newy)/4;
+            player.x = (3 * player.x + newx)/4;
+            player.state = "floating";
+          } else if (!collision(newx, player.y, player.element)) {
+            player.x = newx;
+            player.dy = 0;
+            player.ay = 0;
+            player.state = "skating";
+          } else if (!collision(player.x, newy, player.element)) {
+            player.y = newy;
+            player.dx = 0;
+            player.ax = 0;
+            player.state = "falling straight down";
+          } else {
+            player.dx = 0;
+            player.ax = 0;
+            player.dy = 0;
+            player.ay = 0;
+            state = "blocked";
+          }
+          player.element.style.left = (player.x - originx) + "px";
+          player.element.style.top = (player.y - originy) + "px";
+          let debug = document.getElementById(player.id + "_debug");
+          debug.innerText = player.state + " gold: " + player.gold + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
+          player.dx = (player.dx + player.ax) * 0.9;
+          player.dy = (player.dy + player.ay) * 0.9;
+          player.ay = player.ay + 0.05;
+          
+          let touched_coin = collision(player.x, player.y, player.element, "coin");
+          if (touched_coin) {
+              player.gold += 1;
+              touched_coin.parentNode.removeChild(touched_coin);
+          }
+        }      
+        
+        function collision(x, y, myself, opt_className) {
+          let solids = document.getElementsByClassName(opt_className || "solid");
+          for (let i = 0; i < solids.length; i++) {
+            let solid = solids[iT
+            if (solid != myself &&
+                inside(x, y, solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
+             return solid; 
+            }
+          }
+          return false;
+        }
+        
+        function inside(x, y, top, left, width, height) {
+          return (x >= left && x - 20 <= left + width &&
+                  y >= top && y - 20 <= top + height);
+        }
+    </script>
+</body>
 </html>
