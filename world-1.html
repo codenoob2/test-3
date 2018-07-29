@@ -92,6 +92,9 @@
             console.log("up");
             player.dy -= 15;
             player.state = "jump!";
+          } else if (player.command == "attack") {
+            player.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
+            window.setTimeout(function () { player.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
           } else if (player.command == "wait") {
             // Do nothing, and don't log it as an unknown command.
           } else {
