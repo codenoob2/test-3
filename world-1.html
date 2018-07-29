@@ -55,6 +55,8 @@
               console.log("up");
               this.dy -= 15;
               this.state = "jump!";
+            } else if (this.command == "jump") {
+               // Tried to jump but can't right now.
             } else if (this.command == "attack") {
               this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
               window.setTimeout(function () { player1.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
