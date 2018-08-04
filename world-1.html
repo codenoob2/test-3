@@ -165,7 +165,7 @@
           } else {
             newx = player.x + player.dx;
           }
-          if (collision(player.x, player.y, player.element, "wind")) {
+          if (collision(player.x, player.y, player, "wind")) {
               player.dx -= 1;
           }
           newx = newx + player.dx;
@@ -175,24 +175,24 @@
             player.y = newy;
             player.x = newx;
             player.state = "floating";
-          } else  if (!collision((player.x + 3 * newx)/4, (player.y + 3 * newy)/4, player.element)) {
+          } else  if (!collision((player.x + 3 * newx)/4, (player.y + 3 * newy)/4, player)) {
             player.y = (3 * player.y + newy)/4;
             player.x = (3 * player.x + newx)/4;
             player.state = "floating";
-          } else  if (!collision((player.x + newx)/2, (player.y + newy)/2, player.element)) {
+          } else  if (!collision((player.x + newx)/2, (player.y + newy)/2, player)) {
             player.y = (player.y + newy)/2;
             player.x = (player.x + newx)/2;
             player.state = "floating";
-          } else  if (!collision((3 * player.x + newx)/4, (3 * player.y + newy)/4, player.element)) {
+          } else  if (!collision((3 * player.x + newx)/4, (3 * player.y + newy)/4, player)) {
             player.y = (3 * player.y + newy)/4;
             player.x = (3 * player.x + newx)/4;
             player.state = "floating";
-          } else if (!collision(newx, player.y, player.element)) {
+          } else if (!collision(newx, player.y, player)) {
             player.x = newx;
             player.dy = 0;
             player.ay = 0;
             player.state = "skating";
-          } else if (!collision(player.x, newy, player.element)) {
+          } else if (!collision(player.x, newy, player)) {
             player.y = newy;
             player.dx = 0;
             player.ax = 0;
@@ -212,7 +212,7 @@
           player.dy = (player.dy + player.ay) * 0.9;
           player.ay = player.ay + 0.05;
           
-          let touched_coin = collision(player.x, player.y, player.element, "coin");
+          let touched_coin = collision(player.x, player.y, player, "coin");
           if (touched_coin) {
               player.gold += 1;
               touched_coin.parentNode.removeChild(touched_coin);
@@ -223,17 +223,23 @@
           let solids = document.getElementsByClassName(opt_className || "solid");
           for (let i = 0; i < solids.length; i++) {
             let solid = solids[i];
-            if (solid != myself &&
-                inside(x, y, solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
+            if (solid != myself.element &&
+                overlaps(x, y, myself.width, myself.height,
+                         solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
              return solid; 
             }
           }
           return false;
         }
         
-        function inside(x, y, top, left, width, height) {
-          return (x >= left && x - 20 <= left + width &&
-                  y >= top && y - 20 <= top + height);
+        function overlaps(x, y, w, h, myself, top, left, width, height) {
+          let x_overlaps = (x >= left && x <= left + width ||
+                            x + w >= left && x + w <= left + width ||
+                            x < left && x + w > left + width);
+          let y_overlaps = (y >= top && y <= top + height ||
+                            y + h >= top && y + h <= top + height ||
+                            y < top && y + h > top + height);
+          return x_overlaps && y_overlaps;
         }
     </script>
 </body>
