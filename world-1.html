@@ -224,7 +224,7 @@
           for (let i = 0; i < solids.length; i++) {
             let solid = solids[i];
             if (solid != myself.element &&
-                overlaps(x, y, myself.width, myself.height,
+                overlaps(x, y, myself.width, myself.height, myself,
                          solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
              return solid; 
             }
