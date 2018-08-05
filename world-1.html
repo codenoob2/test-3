@@ -233,13 +233,20 @@
         }
         
         function overlaps(x, y, w, h, myself, top, left, width, height) {
-          let x_overlaps = (x >= left && x <= left + width ||
-                            x + w >= left && x + w <= left + width ||
-                            x < left && x + w > left + width);
-          let y_overlaps = (y >= top && y <= top + height ||
-                            y + h >= top && y + h <= top + height ||
-                            y < top && y + h > top + height);
-          return x_overlaps && y_overlaps;
+          let r = x + w;
+          
+          let right = left + width;
+          
+          let x_overlaps = (x >= left && x <= right ||
+                            r >= left && r <= right ||
+                            x < left && r > right);
+          if (! x_overlaps) return false;
+          let bottom = top + height;
+          let b = y + h;
+          let y_overlaps = (y >= top && y <= bottom ||
+                            b >= top && b <= bottom ||
+                            y < top && b > bottom);
+          return y_overlaps;
         }
     </script>
 </body>
