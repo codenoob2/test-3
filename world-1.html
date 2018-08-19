@@ -211,12 +211,12 @@
             state = "blocked";
           }
           
-          if (player ==  player1){
+          if (player ==  player1) {
             let playerScreenx = player.x - document.body.scrollLeft;
-            if (playerScreenx < 40){
-              document.body.scrollLeft -= 15;
-            } else if (playerScreenx > 400) {
-              document.body.scrollLeft += 15;
+            if (playerScreenx < 40) {
+              document.body.scrollLeft -= 5;
+            } else if (playerScreenx > 1000) {
+              document.body.scrollLeft += 5;
             }
           }
           
