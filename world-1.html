@@ -94,7 +94,7 @@
           } else if (e.keyCode == RIGHT_KEY) {
             console.log("right");
             player1.command = "go right";
-          } else if (e.keyCode == up && player1.dy > -1 && player1.dy < 1) {
+          } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
             console.log("up");
             player1.command = "jump";
           }
@@ -115,7 +115,7 @@
             player1.command = "wait";
           } else if (e.keyCode == RIGHT_KEY) {
             player1.command = "wait";
-          } else if (e.keyCode == up) {
+          } else if (e.keyCode == UP_KEY) {
             player1.command = "wait";
           }
           if (e.key == "a") {
