@@ -88,10 +88,10 @@
         let RIGHT_KEY = 39;
         let DOWN_KEY = 40;
         document.addEventListener("keydown", function(e) {
-          if (e.keyCode == left) {
+          if (e.keyCode == LEFT_KEY) {
             console.log("left");
             player1.command = "go left";
-          } else if (e.keyCode == right) {
+          } else if (e.keyCode == RIGHT_KEY) {
             console.log("right");
             player1.command = "go right";
           } else if (e.keyCode == up && player1.dy > -1 && player1.dy < 1) {
@@ -111,9 +111,9 @@
         });
         
         document.addEventListener("keyup", function(e) {
-          if (e.keyCode == left) {
+          if (e.keyCode == LEFT_KEY) {
             player1.command = "wait";
-          } else if (e.keyCode == right) {
+          } else if (e.keyCode == RIGHT_KEY) {
             player1.command = "wait";
           } else if (e.keyCode == up) {
             player1.command = "wait";
