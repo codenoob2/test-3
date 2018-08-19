@@ -210,6 +210,16 @@
             player.ay = 0;
             state = "blocked";
           }
+          
+          if (player ==  player1){
+            let playerScreenx = player.x - document.body.scrollLeft;
+            if (playerScreenx < 40){
+              document.body.scrollLeft -= 15;
+            } else if (playerScreenx > 400) {
+              document.body.scrollRight += 15;
+            }
+          }
+          
           player.element.style.left = player.x + "px";
           player.element.style.top = player.y + "px";
           let debug = document.getElementById(player.id + "_debug");
