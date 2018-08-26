@@ -41,11 +41,16 @@
             this.state = "starting";
             this.command = "wait";
             this.gold = 0;
+            this.hp = 100;  
             allSprites.push(this);
-          }
+          }          
           
           decideAction() {
             console.log("Object does not override decideAction " + this);
+          }
+          
+          displayAction() {
+            // In the base class, this does nothing,
           }
         }
         
@@ -74,7 +79,15 @@
               console.log("unknown command: " + this.command)
             }
           }  // end decideAction
-          
+
+          displayAction() {
+            if (this.command == "attack") {
+              // Show attack costume
+            } else {
+              // Show normal custome
+            }
+          }
+
         }
 
         class Enemy extends Sprite {
@@ -115,6 +128,8 @@
           } else if (e.key == "w" && player1.dy > -1 && player1.dy < 1) {
             console.log("w");
             player1.command = "jump";
+          } else if (e.key == " ") {
+            player1.command = "attack"; 
           }
         });
         
@@ -132,6 +147,8 @@
             player1.command = "wait";
           } else if (e.key == "w") {
             player1.command = "wait";
+          } else if (e.key == " ") {
+            player1.command = "wait"; 
           }
         });
         
@@ -231,6 +248,7 @@
           
           player.element.style.left = player.x + "px";
           player.element.style.top = player.y + "px";
+          player.displayAction();
           let debug = document.getElementById(player.id + "_debug");
           debug.innerText = player.state + " gold: " + player.gold + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
           player.dx = (player.dx + player.ax) * 0.9;
