@@ -111,6 +111,7 @@
         let RIGHT_KEY = 39;
         let DOWN_KEY = 40;
         document.addEventListener("keydown", function(e) {
+         //possible to remove to prevent moving & scrolling at the same time?
           if (e.keyCode == LEFT_KEY) {
             console.log("left");
             player1.command = "go left";
