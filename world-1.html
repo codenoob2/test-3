@@ -98,10 +98,10 @@
           decideAction() {
             if (this.x > player1.x + 20) {
               this.dx = -4;
-              this.element.style.transform = "scaleX(-1)";
+              this.element.style.transform = "scaleX(1)";
             } else if (this.x < player1.x - 20) {
               this.dx = 4;              
-              this.element.style.transform = "scaleX(1)";
+              this.element.style.transform = "scaleX(-1)";
             } else {
               console.log("should I attack?");
             }
