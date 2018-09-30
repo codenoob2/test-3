@@ -102,6 +102,9 @@
             } else if (this.x < player1.x - 20) {
               this.dx = 4;              
               this.element.style.transform = "scaleX(-1)";
+            } else if (Math.random() < 0.1 && this.dy > -1 && this.dy < 1) {
+              this.dy -= 15;
+              this.state = "jump!";
             } else {
               console.log("should I attack?");
             }
