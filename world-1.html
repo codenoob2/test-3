@@ -143,14 +143,16 @@
           } else if (e.key == "d") {
             console.log("d");
             player1.command = "go right";
-          } else if (e.key == "w" && player1.dy > -1 && player1.dy < 1) {
+          } else if ((e.key == "w" || e.key == " ") && player1.dy > -1 && player1.dy < 1) {
             console.log("w");
             player1.command = "jump";
-          } else if (e.key == " ") {
-            player1.command = "attack"; 
-          }
+          } 
         });
-        
+    
+        document.addEventListener("click", function(e) {
+            player1.command = "attack";
+        }
+                                  
         document.addEventListener("keyup", function(e) {
           if (e.keyCode == LEFT_KEY) {
             player1.command = "wait";
