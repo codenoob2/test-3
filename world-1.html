@@ -149,8 +149,12 @@
           } 
         });
     
-        document.addEventListener("click", function(e) {
+        document.addEventListener("mousedown", function(e) {
             player1.command = "attack";
+        });
+        
+        document.addEventListener("mouseup", function(e) {
+            player1.command = "wait";
         });
                                   
         document.addEventListener("keyup", function(e) {
