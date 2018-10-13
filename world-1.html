@@ -82,7 +82,7 @@
             } else if (this.command == "attack") {
               this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
               window.setTimeout(function () { player1.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
-              let victim = collision(this.x + player.width, this.y + player.height/2, this, "enemy");
+              let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy");
               if (victim) alert (1);
             } else if (this.command == "wait") {
               // Do nothing, and don't log it as an unknown command.
