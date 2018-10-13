@@ -201,7 +201,7 @@
             newy = bgBottom - player.height;
             player.state = "hit floor";
           } else if (player.y - margin + player.dy < bgTop) {
-            player.dy = 0;
+            player.dy = 1;
             player.ay = 0;
             newy = bgTop;
             player.state = "hit ceiling";
