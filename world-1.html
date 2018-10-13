@@ -275,7 +275,7 @@
           player.element.style.top = player.y + "px";
           player.displayAction();
           let debug = document.getElementById(player.id + "_debug");
-          debug.innerText = player.state + " gold: " + player.gold + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
+          debug.innerText = player.state + " gold: " + player.gold + " hp: " + player.hp + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
           player.dx = (player.dx + player.ax) * 0.9;
           player.dy = (player.dy + player.ay) * 0.9;
           player.ay = player.ay + 0.05;
