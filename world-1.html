@@ -82,8 +82,8 @@
             } else if (this.command == "attack") {
               this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
               window.setTimeout(function () { player1.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
-              let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy");
-              if (victim) alert (1);
+              let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
+              if (victim) victim.style.border = "1px solid red";
             } else if (this.command == "wait") {
               // Do nothing, and don't log it as an unknown command.
             } else {
@@ -289,12 +289,14 @@
           }
         }      
         
-        function collision(x, y, myself, opt_className) {
+        function collision(x, y, myself, opt_className, opt_width, opt_heighth) {
+          let width = opt_width || myself.width;
+          let height = opt_height || myself.height;
           let solids = document.getElementsByClassName(opt_className || "solid");
           for (let i = 0; i < solids.length; i++) {
             let solid = solids[i];
             if (solid != myself.element &&
-                overlaps(x, y, myself.width, myself.height, 
+                overlaps(x, y, width, height, 
                          solid.offsetTop, solid.offsetLeft, solid.offsetWidth, solid.offsetHeight)) {
              return solid; 
             }
