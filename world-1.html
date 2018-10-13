@@ -203,7 +203,7 @@
           } else if (player.y - margin + player.dy < bgTop) {
             player.dy = 1;
             player.ay = 0;
-            newy = bgTop;
+            newy = bgTop + margin + 1;
             player.state = "hit ceiling";
           } else {
             newy = player.y + player.dy;
