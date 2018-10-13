@@ -194,12 +194,13 @@
           player.decideAction();
           let newx = player.x;
           let newy = player.y;
+          let margin = 10;
           if (player.y + player.height + player.dy > bgBottom) {
             player.dy = 0;
             player.ay = 0;
             newy = bgBottom - player.height;
             player.state = "hit floor";
-          } else if (player.y + player.dy < bgTop) {
+          } else if (player.y - margin + player.dy < bgTop) {
             player.dy = 0;
             player.ay = 0;
             newy = bgTop;
@@ -208,12 +209,12 @@
             newy = player.y + player.dy;
           }
           
-          if (player.x + player.width + player.dx > bgRight) {
+          if (player.x - margin + player.width + player.dx > bgRight) {
             player.dx = 0;
             player.ax = 0;
             newx = bgRight - player.width;
             player.state = "hit right side";
-          } else if (player.x + player.dx < bgLeft) {
+          } else if (player.x + margin + player.dx < bgLeft) {
             player.dx = 0;
             player.ax = 0;
             newx = bgLeft;
