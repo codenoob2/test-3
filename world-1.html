@@ -212,12 +212,12 @@
           if (player.x - margin + player.width + player.dx > bgRight) {
             player.dx = 0;
             player.ax = 0;
-            newx = bgRight - player.width;
+            newx = bgRight + margin - player.width;
             player.state = "hit right side";
           } else if (player.x + margin + player.dx < bgLeft) {
             player.dx = 0;
             player.ax = 0;
-            newx = bgLeft;
+            newx = bgLeft - margin;
             player.state = "hit left side";
           } else {
             newx = player.x + player.dx;
