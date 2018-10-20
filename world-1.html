@@ -1,14 +1,6 @@
 <html>
   <head>
      <style>
-      #player1 {
-         background-image: url(player-_-wooden-armor-pixilart.png);
-         background-position: 140px 160px;
-         background-size: 40px 40px;
-         position: absolute;
-         width: 14px;
-         height: 24px;
-       }
       .plat { background: black; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
@@ -16,7 +8,7 @@
   </head>
 <body>
   <div id="bg" style="width:8000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
-    <div id="player1" class="solid" style="left:500px; top:250px"></div>
+    <img id="player1" class="solid" src="player-_-wooden-armor-pixilart (2).png" style="position:absolute;" width=140 height=140>
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=150 height=150>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
     <img id="enemy3" class="solid enemy" src="pixil-frame-0 (1).png" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
@@ -102,10 +94,10 @@
           displayAction() {
             if (this.command == "attack") {
               // Show attack costume
-              this.element.src = "attack_-wooden-armor-pixilart.gif";
+              this.element.src = "attack_-wooden-armor-pixilart (2).gif";
             } else {
               // Show normal custome
-              this.element.src = "player-_-wooden-armor-pixilart.png";
+              this.element.src = "player-_-wooden-armor-pixilart (1).png";
             }
           }
 
