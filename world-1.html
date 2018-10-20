@@ -80,8 +80,8 @@
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack") {
-              this.element.src = "neverwinter-wars-ranger-1.2-pixilart (1).png";
-              window.setTimeout(function () { player1.element.src = "neverwinter-wars-ranger-1.0-pixilart.png" }, 250);
+              this.element.src = "attack_-wooden-armor-pixilart.gif";
+              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart.png" }, 250);
               let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (victim) victim.style.border = "1px solid red";
             } else if (this.command == "wait") {
