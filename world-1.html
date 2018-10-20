@@ -81,7 +81,7 @@
                // Tried to jump but can't right now.
             } else if (this.command == "attack") {
               this.element.src = "attack_-wooden-armor-pixilart.gif";
-              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart.png" }, 250);
+              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png" }, 250);
               let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (victim) victim.style.border = "1px solid red";
             } else if (this.command == "wait") {
@@ -94,10 +94,10 @@
           displayAction() {
             if (this.command == "attack") {
               // Show attack costume
-              this.element.src = "attack_-wooden-armor-pixilart (2).gif";
+              this.element.src = "attack_-wooden-armor-pixilart (1).gif";
             } else {
               // Show normal custome
-              this.element.src = "player-_-wooden-armor-pixilart (1).png";
+              this.element.src = "player-_-wooden-armor-pixilart (2).png";
             }
           }
 
