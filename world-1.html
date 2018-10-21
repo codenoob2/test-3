@@ -80,8 +80,8 @@
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack") {
-              this.element.src = "attack_-wooden-armor-pixilart.gif";
-              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png" }, 2500);
+              this.element.src = "attack_-wooden-armor-pixilart (3).gif";
+              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (3).gif" }, 2500);
               let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (victim) victim.style.border = "1px solid red";
             } else if (this.command == "wait") {
