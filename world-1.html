@@ -79,27 +79,18 @@
               this.state = "jump!";
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
-            } else if (this.command == "attack") {
+            } else if (this.command == "attack" && this.state != "attacking") {
               this.element.src = "attack_-wooden-armor-pixilart (3).gif";
-              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png" }, 2500);
+              window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png"; player1.states = "normal"; }, 2500);
               let victim = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (victim) victim.style.border = "1px solid red";
+              this.state = "attacking";
             } else if (this.command == "wait") {
               // Do nothing, and don't log it as an unknown command.
             } else {
               console.log("unknown command: " + this.command)
             }
           }  // end decideAction
-
-          displayAction() {
-            if (this.command == "attack") {
-              // Show attack costume
-              this.element.src = "attack_-wooden-armor-pixilart (3).gif";
-            } else {
-              // Show normal custome
-              // this.element.src = "player-_-wooden-armor-pixilart (2).png";
-            }
-          }
 
         }
 
