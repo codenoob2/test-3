@@ -172,10 +172,10 @@
         }, 50);
         
         let bg = document.getElementById('bg');
-        let bgTop = bg.offsetTop;
-        let bgLeft = bg.offsetLeft;
-        let bgBottom = bgTop + bg.offsetHeight;
-        let bgRight = bgLeft + bg.offsetWidth;
+        let bgTop = bg.offsetTop +1;
+        let bgLeft = bg.offsetLeft +1;
+        let bgBottom = bgTop + bg.offsetHeight -2;
+        let bgRight = bgLeft + bg.offsetWidth -2;
         document.body.scrollLeft = 0;
     
     
