@@ -4,7 +4,8 @@
       .plat { background: black; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
-     </style>
+      .defeated { width: 0px !important; height: 0px !important; transition: 3s; }
+    </style>
   </head>
 <body>
   <div id="bg" style="width:8000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
@@ -87,8 +88,6 @@
               if (victim_el) { 
                 let victim = victim_el.sprite;
                 victim.hp -= 10;
-                if (victim.hp <= 0) {
-                  victim_el.style.border = "10px solid red";
                 }
               }
               this.state = "attacking";
@@ -189,6 +188,7 @@
         function playTurn(player) {
           if (player.hp <= 0) {
           /// change to defeated image
+            player.element.className = 'defeated';
           } else { 
             player.decideAction();
           }
