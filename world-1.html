@@ -187,7 +187,11 @@
     
     
         function playTurn(player) {
-          player.decideAction();
+          if (player.hp <= 0) {
+          /// change to defeated image
+          } else { 
+            player.decideAction();
+          }
           let newx = player.x;
           let newy = player.y;
           let margin = 10;
