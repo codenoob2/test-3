@@ -188,6 +188,9 @@
           if (player.hp <= 0) {
           /// change to defeated image
             player.element.className = 'defeated';
+            window.setTimeout(function () {
+               player.element.className = 'solid enemy';
+            }, 6000);
           } else { 
             player.decideAction();
           }
