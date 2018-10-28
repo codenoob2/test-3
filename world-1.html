@@ -85,9 +85,9 @@
               window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png"; player1.states = "normal"; }, 2500);
               let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (victim_el) { 
-                let victim = victim_el.sprite
+                let victim = victim_el.sprite;
                 victim.hp -= 10;
-                if (enemy.hp == 0) {
+                if (victim.hp <= 0) {
                   victim_el.style.border = "10px solid red";
                 }
               }
