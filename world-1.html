@@ -54,6 +54,9 @@
             this.command = "wait";
             this.gold = 0;
             this.hp = 100;  
+            this.damage = 1;
+            this.knockback = 1;
+            //factor?
             allSprites.push(this);
           }          
           
@@ -93,7 +96,8 @@
               }
               if (victim_el) { 
                 let victim = victim_el.sprite;
-                victim.hp -= 10;
+                victim.hp -= this.damage;
+                victim.dx += this.knockback * this.facing;
               }
               this.state = "attacking";
             } else if (this.command == "wait") {
@@ -123,6 +127,8 @@
         }
     
         let player1 = new Player(100, 100, "player1");
+        player1.damage = 10;
+        player1.knockback = 3;
         let enemy1 = new Enemy(900, 100, "enemy1");
         let enemy2 = new Enemy(1500, 100, "enemy2");
         let LEFT_KEY = 37;
