@@ -85,7 +85,7 @@
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack" && this.state != "attacking") {
-              this.element.src = "attack_-wooden-armor-pixilart (3).gif";
+              this.element.src = "attack_-wooden-armor-pixilart (4).gif";
               window.setTimeout(function () { player1.element.src = "player-_-wooden-armor-pixilart (2).png"; player1.states = "normal"; }, 2500);
               let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (this.facing == -1) {
