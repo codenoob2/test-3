@@ -97,7 +97,7 @@
               if (victim_el) { 
                 let victim = victim_el.sprite;
                 victim.hp -= this.damage;
-                victim.dx += this.knockback * this.facing;
+                victim.dx -= this.knockback * this.facing;
               }
               this.state = "attacking";
             } else if (this.command == "wait") {
