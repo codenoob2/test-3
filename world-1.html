@@ -141,9 +141,11 @@
           if (e.keyCode == LEFT_KEY) {
             console.log("left");
             player1.command = "go left";
+            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the spacebar. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
           } else if (e.keyCode == RIGHT_KEY) {
             console.log("right");
             player1.command = "go right";
+            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the spacebar. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
           } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
             console.log("up");
             player1.command = "jump";
