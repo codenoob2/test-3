@@ -56,7 +56,7 @@
             this.gold = 0;
             this.hp = 100;  
             this.damage = 1;
-            this.knockback += 1;
+            this.knockback = 1;
             //factor?
             allSprites.push(this);
           }          
@@ -101,7 +101,7 @@
               if (victim_el) { 
                 let victim = victim_el.sprite;
                 victim.hp -= this.damage;
-                victim.dx -= this.knockback * this.facing;
+                victim.dx += this.knockback * this.facing;
               }
               this.state = "attacking";
             } else if (this.command == "wait") {
@@ -135,7 +135,7 @@
               if (victim_el) { 
                 let victim = victim_el.sprite;
                 victim.hp -= this.damage;
-                victim.dx -= this.knockback * this.facing;
+                victim.dx += this.knockback * this.facing;
               }
               this.state = "attacking";
             }
