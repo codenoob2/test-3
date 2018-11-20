@@ -34,6 +34,7 @@
   <p id="player1_debug"></p>
   <p id="enemy1_debug"></p>
   <p id="enemy2_debug"></p>
+  <p id="enemy3_debug"></p>
   
   <script>
         let allSprites = [];
@@ -147,6 +148,8 @@
         player1.knockback = 15;
         let enemy1 = new Enemy(900, 100, "enemy1");
         let enemy2 = new Enemy(1500, 100, "enemy2");
+        let enemy3 = new Enemy(1000, 100, "enemy3");
+    
         let LEFT_KEY = 37;
         let UP_KEY = 38;
         let RIGHT_KEY = 39;
