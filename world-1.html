@@ -14,6 +14,7 @@
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=80 height=80>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
     <img id="enemy3" class="solid enemy" src="pixil-frame-0 (1).png" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
+    <img id="enemy4" class="solid enemy" src"dasher-pixilart.png" style="position:absolute; left: 3700px; top: 600px"width=28px height=21px>
     <div class="plat solid" style="top:280px; left:300px; width:300px; height:30px;"></div>
     <div class="plat solid" style="top:400px; left:600px; width:160px; height:30px;"></div>
     <div class="plat solid" style="top:500px; left:900px; width:400px; height:30px;"></div>
@@ -35,6 +36,7 @@
   <p id="enemy1_debug"></p>
   <p id="enemy2_debug"></p>
   <p id="enemy3_debug"></p>
+  <p id="enemy4_debug"></p>
   
   <script>
         let allSprites = [];
@@ -142,6 +144,10 @@
             }
           }
         }
+        
+        class Dasher extends Sprite {
+          ///to be added
+        }
     
         let player1 = new Player(100, 100, "player1");
         player1.damage = 10;
@@ -149,6 +155,7 @@
         let enemy1 = new Enemy(900, 100, "enemy1");
         let enemy2 = new Enemy(1500, 100, "enemy2");
         let enemy3 = new Enemy(1000, 100, "enemy3");
+        let enemy4 = new Enemy(3700, 60, "enemy4");
     
         let LEFT_KEY = 37;
         let UP_KEY = 38;
