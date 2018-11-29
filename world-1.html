@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Wars Official Game </title>
      <style>
-      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 3s; }
@@ -57,8 +57,8 @@
             this.state = "starting";
             this.command = "wait";
             this.gold = 0;
-            this.hp = 100;  
-            this.damage = 1;
+            this.hp = 50;  
+            this.damage = 5;
             this.knockback = 1;
             //factor?
             allSprites.push(this);
@@ -147,6 +147,7 @@
         
         class Dasher extends Sprite {
           ///to be added
+          /// what will this be? -Dan
         }
     
         let player1 = new Player(100, 100, "player1");
@@ -163,18 +164,19 @@
         let DOWN_KEY = 40;
         document.addEventListener("keydown", function(e) {
          //possible to remove to prevent moving & scrolling at the same time?
+          // I don't think that's possible? -Dan
           if (e.keyCode == LEFT_KEY) {
             console.log("left");
             player1.command = "go left";
-            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the spacebar. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
+            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the K key. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
           } else if (e.keyCode == RIGHT_KEY) {
             console.log("right");
             player1.command = "go right";
-            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the spacebar. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
+            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the K key. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
           } else if (e.keyCode == UP_KEY && player1.dy > -1 && player1.dy < 1) {
             console.log("up");
             player1.command = "jump";
-            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the spacebar. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
+            alert ("Welcome to the tutorial! First of all, please do not use the arrow keys to move. You should use the WASD keys, W to go up, A to go left, D to go right, and S does not do anything. The attack key is the K key. If you have any questions or feedback, please go to our online survey on Google Classroom and post it. Thx");
           }
           if (e.key == "a") {
             console.log("a");
