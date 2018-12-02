@@ -64,6 +64,7 @@
             this.hp = 100;  
             this.damage = 2;
             this.knockback = 1;
+            this.cling = false;
             //factor?
             allSprites.push(this);
           }          
@@ -93,6 +94,7 @@
               console.log("up");
               this.dy -= 15;
               this.state = "jump!";
+              this.cling = false;
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack" && this.state != "attacking") {
@@ -251,6 +253,7 @@
                player.dy = 0;
                player.ax = 0;
                player.ay = 0;
+               player.cling = false;
             }, 6000);
           } else { 
             player.decideAction();
@@ -268,7 +271,7 @@
             player.ay = 0;
             newy = bgTop + margin + 1;
             player.state = "hit ceiling";
-          } else {
+          } else if (!player.cling) {
             newy = player.y + player.dy;
           }
           
@@ -292,6 +295,9 @@
           if (!collision(newx, newy, player) 
               /* || collision(player.x, player.y, player_img) */
              ) {
+            if (newx != player.x) {
+              player.cling = false;
+            }
             player.y = newy;
             player.x = newx;
             player.state = "floating";
@@ -341,7 +347,11 @@
           debug.innerText = player.state + " gold: " + player.gold + " hp: " + player.hp + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
           player.dx = (player.dx + player.ax) * 0.9;
           player.dy = (player.dy + player.ay) * 0.9;
-          player.ay = player.ay + 0.05;
+          if (player.cling) {
+            player.ay = 0;
+          } else {
+            player.ay = player.ay + 0.05;
+          }
           
           let touched_coin = collision(player.x, player.y, player, "coin");
           if (touched_coin) {
