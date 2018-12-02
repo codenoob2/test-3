@@ -46,6 +46,8 @@
           constructor(x, y, image_id) {
             this.x = x; 
             this.y = y;
+            this.spawnx = x;
+            this.spawny = y;
             this.id = image_id;
             this.element = document.getElementById(image_id);
             this.element.sprite = this;
@@ -159,7 +161,7 @@
         let enemy2 = new Enemy(1500, 100, "enemy2");
         let enemy3 = new Enemy(1000, 100, "enemy3");
         let enemy4 = new Enemy(3700, 60, "enemy4");
-       
+        
     
         let LEFT_KEY = 37;
         let UP_KEY = 38;
@@ -243,6 +245,12 @@
             window.setTimeout(function () {
                player.element.className = 'solid enemy';
                player.hp = 100;
+               player.x = player.spawnx;
+               player.y = player.spawny;
+               player.dx = 0;
+               player.dy = 0;
+               player.ax = 0;
+               player.ay = 0;
             }, 6000);
           } else { 
             player.decideAction();
