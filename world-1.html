@@ -9,7 +9,7 @@
     </style>
   </head>
 <body>
-  <div id="bg" style="width:8000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
+  <div id="bg" style="width:8000px; height:1000px; background:purple; border:2px solid black; margin: 2px;">
     <img id="player1" class="solid player" src="player_-wooden-armor-pixilart.png" style="position:absolute;" width=56 height=56>
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=80 height=80>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
@@ -159,14 +159,14 @@
         }
     
         let player1 = new Player(100, 100, "player1");
-        player1.damage = 1000;
+        player1.damage = 15;
         player1.knockback = 15;
         let enemy1 = new Enemy(900, 100, "enemy1");
         let enemy2 = new Enemy(1500, 100, "enemy2");
         let enemy3 = new Enemy(1000, 100, "enemy3");
         let enemy4 = new Enemy(3700, 60, "enemy4");
         let enemy5 = new Enemy(3700, 400, "enemy5");
-        enemy5.hp = 10000;
+        enemy5.hp = 1000;
     
         let LEFT_KEY = 37;
         let UP_KEY = 38;
