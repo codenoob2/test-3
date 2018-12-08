@@ -168,7 +168,7 @@
         let enemy4 = new Enemy(3700, 60, "enemy4");
         let enemy5 = new Enemy(3700, 400, "enemy5");
         enemy5.hp = 1000;
-        let coin1 = new Sprite(520, 400, "coin1");
+        let coin1 = new Sprite(400, 520, "coin1");
     
         let LEFT_KEY = 37;
         let UP_KEY = 38;
@@ -350,7 +350,9 @@
           player.element.style.top = player.y + "px";
           player.displayAction();
           let debug = document.getElementById(player.id + "_debug");
-          debug.innerText = player.state + " gold: " + player.gold + " hp: " + player.hp + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
+          if (debug) {
+            debug.innerText = player.state + " gold: " + player.gold + " hp: " + player.hp + " (" + Math.floor(player.x) + ", " + Math.floor(player.y) + ") + (" + Math.floor(player.dx * 100) / 100 + ", " + Math.floor(player.dy * 100) / 100 + ")";
+          }
           player.dx = (player.dx + player.ax) * 0.9;
           player.dy = (player.dy + player.ay) * 0.9;
           if (player.cling) {
