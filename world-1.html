@@ -6,6 +6,7 @@
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
+       .rock { background: grey; position: absolute; border-radius: 40px; border: solid black 2px; width: 20px; height: 20px; opacity: 0.3}
     </style>
   </head>
 <body>
@@ -45,13 +46,17 @@
   <script>
         let allSprites = [];
         class Sprite {
-          constructor(x, y, image_id) {
+          constructor(x, y, image_id, element=Undefined) {
             this.x = x; 
             this.y = y;
             this.spawnx = x;
             this.spawny = y;
             this.id = image_id;
-            this.element = document.getElementById(image_id);
+            if (element) {
+              this.element = element;
+            } else {
+              this.element = document.getElementById(image_id);
+            }
             this.element.sprite = this;
             this.width = this.element.offsetWidth;
             this.height = this.element.offsetHeight;
@@ -96,6 +101,22 @@
               console.log("up");
               this.dy -= 15;
               this.state = "jump!";
+              this.cling = false;
+            } else if (this.command == "throwLeft") {
+              console.log("throwLeft");
+              let rockelement = document.createElement("div");
+              let rock = new Sprite(this.x-30, this.y, "", element=rockelement);
+              rock.dy = -15;
+              rock.dx = -30;
+              this.state = "floating";
+              this.cling = false;
+            } else if (this.command == "throwRight") {
+              console.log("throwRight");
+              let rockelement = document.createElement("div");
+              let rock = new Sprite(this.x+30, this.y, "", element=rockelement); 
+              rock.dy = -15;
+              rock.dx = 30;
+              this.state = "floating";
               this.cling = false;
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
@@ -205,11 +226,11 @@
             console.log("attack");
             player1.command = "attack";
           } else if (e.key == "j") {
-            console.log("attackLeft");
-            player1.command = "attackLeft";
+            console.log("throwRock");
+            player1.command = "throwLeft";
           } else if (e.key == "l") {
-            console.log("attackRight");
-            player1.command = "attackRight";
+            console.log("throwRock");
+            player1.command = "throwRight";
           } 
         });
     
