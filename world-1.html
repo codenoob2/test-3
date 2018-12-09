@@ -142,10 +142,10 @@
             let rockelement = document.createElement("div");
             rockelement.classList.add('rock');
             rockelement.classList.add('solid');
+            bg.appendChild(rockelement);
             let rock = new Sprite(this.x+30, this.y, "", rockelement); 
             rock.dy = -15;
             rock.dx = dx;
-            bg.appendChild(rockelement);
           }
 
         }
