@@ -140,7 +140,7 @@
           
           makeRock(dx) {
             let rockelement = document.createElement("div");
-            rockelement.classList.append('rock');
+            rockelement.classList.add('rock');
             let rock = new Sprite(this.x+30, this.y, "", rockelement); 
             rock.dy = -15;
             rock.dx = dx;
