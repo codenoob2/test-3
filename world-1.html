@@ -105,7 +105,7 @@
             } else if (this.command == "throwLeft") {
               console.log("throwLeft");
               let rockelement = document.createElement("div");
-              let rock = new Sprite(this.x-30, this.y, "", element=rockelement);
+              let rock = new Sprite(this.x-30, this.y, "", rockelement);
               rock.dy = -15;
               rock.dx = -30;
               this.state = "floating";
@@ -114,7 +114,7 @@
             } else if (this.command == "throwRight") {
               console.log("throwRight");
               let rockelement = document.createElement("div");
-              let rock = new Sprite(this.x+30, this.y, "", element=rockelement); 
+              let rock = new Sprite(this.x+30, this.y, "", rockelement); 
               rock.dy = -15;
               rock.dx = 30;
               this.state = "floating";
