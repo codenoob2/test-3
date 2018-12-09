@@ -335,7 +335,11 @@
               player.dx -= 1;
           }
           newx = newx + player.dx;
-          if (!collision(newx, newy, player) 
+          let moving = (player.dx > 1 || player.dx < -1 ||
+                        player.dy > 1 || player.dy < -1);
+          if (!moving) {
+              // don't bother checking collisions.
+          } else if (!collision(newx, newy, player) 
               /* || collision(player.x, player.y, player_img) */
              ) {
             if (newx != player.x) {
