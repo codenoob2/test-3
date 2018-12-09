@@ -104,21 +104,15 @@
               this.cling = false;
             } else if (this.command == "throwLeft") {
               console.log("throwLeft");
-              let rockelement = document.createElement("div");
-              let rock = new Sprite(this.x-30, this.y, "", rockelement);
-              rock.dy = -15;
-              rock.dx = -30;
+              this.makeRock(-30);
               this.state = "floating";
-              bg.appendChild(rockelement);
+              this.command = "wait";
               this.cling = false;
             } else if (this.command == "throwRight") {
               console.log("throwRight");
-              let rockelement = document.createElement("div");
-              let rock = new Sprite(this.x+30, this.y, "", rockelement); 
-              rock.dy = -15;
-              rock.dx = 30;
+              this.makeRock(30);
               this.state = "floating";
-              bg.appendChild(rockelement);
+              this.command = "wait";
               this.cling = false;
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
@@ -144,6 +138,15 @@
               console.log("unknown command: " + this.command)
             }
           }  // end decideAction
+          
+          makeRock(dx) {
+            let rockelement = document.createElement("div");
+            rockelement.classList.append('rock');
+            let rock = new Sprite(this.x+30, this.y, "", rockelement); 
+            rock.dy = -15;
+            rock.dx = dx;
+            bg.appendChild(rockelement);
+          }
 
         }
 
