@@ -71,7 +71,7 @@
             this.hp = 90;  
             this.damage = 3;
             this.knockback = 2;
-            this.cling = false;
+            this.clinging = false;
             //factor?
             allSprites.push(this);
           }          
@@ -81,6 +81,10 @@
           
           displayAction() {
             // In the base class, this does nothing,
+          }
+          
+          cling() {
+            this.clinging = true;
           }
         }
         
@@ -100,19 +104,19 @@
               console.log("up");
               this.dy -= 15;
               this.state = "jump!";
-              this.cling = false;
+              this.clinging = false;
             } else if (this.command == "throwLeft") {
               console.log("throwLeft");
               this.makeRock(-30);
               this.state = "floating";
               this.command = "wait";
-              this.cling = false;
+              this.clinging = false;
             } else if (this.command == "throwRight") {
               console.log("throwRight");
               this.makeRock(30);
               this.state = "floating";
               this.command = "wait";
-              this.cling = false;
+              this.clinging = false;
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack" && this.state != "attacking") {
@@ -143,7 +147,7 @@
             rockelement.classList.add('rock');
             rockelement.classList.add('solid');
             bg.appendChild(rockelement);
-            let rock = new Sprite(this.x+30, this.y, "", rockelement); 
+            let rock = new Rock(this.x+30, this.y, "", rockelement); 
             rock.dy = -15;
             rock.dx = dx;
           }
@@ -184,6 +188,12 @@
           /// what will this be? -Dan
         }
     
+        class Rock extends Sprite {
+          cling() {
+            // don't actually cling.
+          }
+        }
+
         let player1 = new Player(100, 100, "player1");
         player1.damage = 10;
         player1.knockback = 10;
@@ -286,7 +296,7 @@
                player.dy = 0;
                player.ax = 0;
                player.ay = 0;
-               player.cling = false;
+               player.clinging = false;
             }, 6000);
           } else { 
             player.decideAction();
@@ -304,7 +314,7 @@
             player.ay = 0;
             newy = bgTop + margin + 1;
             player.state = "hit ceiling";
-          } else if (!player.cling) {
+          } else if (!player.clinging) {
             newy = player.y + player.dy;
           }
           
@@ -329,7 +339,7 @@
               /* || collision(player.x, player.y, player_img) */
              ) {
             if (newx != player.x) {
-              player.cling = false;
+              player.clinging = false;
             }
             player.y = newy;
             player.x = newx;
@@ -356,7 +366,7 @@
             player.dx = 0;
             player.ax = 0;
             player.state = "falling straight down";
-            player.cling = true;
+            player.cling();
           } else {
             player.dx = 0;
             player.ax = 0;
@@ -389,7 +399,7 @@
           }
           player.dx = (player.dx + player.ax) * 0.9;
           player.dy = (player.dy + player.ay) * 0.9;
-          if (player.cling) {
+          if (player.clinging) {
             player.ay = 0;
           } else {
             player.ay = player.ay + 0.05;
