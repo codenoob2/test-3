@@ -122,6 +122,19 @@
               this.state = "floating";
               this.command = "wait";
               this.clinging = false;
+              let forceWidth = 100;
+              let forceHeight = 100;
+              if (this.facing == 1) {
+                let forceX = this.x + this.width + 5;
+                let forceY = this.y + this.height;
+              }
+              else {
+                let forceX = this.x - forceWidth - 5;
+                let forceY = this.y - forceHeight;              
+              }
+              // check collision
+              victim_el = collision(forceX, forceY, this, "enemy", forceWidth, forceHeight);
+              console.log(victim_el)
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack" && this.state != "attacking") {
