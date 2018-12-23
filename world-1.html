@@ -117,6 +117,11 @@
               this.state = "floating";
               this.command = "wait";
               this.clinging = false;
+            } else if (this.command == "push") {
+              console.log("push");
+              this.state = "floating";
+              this.command = "wait";
+              this.clinging = false;
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
             } else if (this.command == "attack" && this.state != "attacking") {
@@ -246,6 +251,9 @@
           } else if (e.key == "l") {
             console.log("throwRock");
             player1.command = "throwRight";
+          } else if (e.key == "f") {
+            console.log("push");
+            player1.command = "push";
           } 
         });
     
