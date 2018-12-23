@@ -124,13 +124,11 @@
               this.clinging = false;
               let forceWidth = 100;
               let forceHeight = 100;
+              let forceX = this.x - forceWidth - 5;
+              let forceY = this.y - forceHeight; 
               if (this.facing == 1) {
-                let forceX = this.x + this.width + 5;
-                let forceY = this.y + this.height;
-              }
-              else {
-                let forceX = this.x - forceWidth - 5;
-                let forceY = this.y - forceHeight;              
+                forceX = this.x + this.width + 5;
+                forceY = this.y + this.height;
               }
               // check collision
               victim_el = collision(forceX, forceY, this, "enemy", forceWidth, forceHeight);
