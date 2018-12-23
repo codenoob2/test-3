@@ -131,7 +131,7 @@
                 forceY = this.y + this.height;
               }
               // check collision
-              victim_el = collision(forceX, forceY, this, "enemy", forceWidth, forceHeight);
+              let victim_el = collision(forceX, forceY, this, "enemy", forceWidth, forceHeight);
               console.log(victim_el)
             } else if (this.command == "jump") {
                // Tried to jump but can't right now.
