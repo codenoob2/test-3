@@ -7,6 +7,7 @@
       .coin { background: red; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
       .rock { background: grey; position: absolute; border-radius: 10px; border: solid black 2px; width: 20px; height: 20px; opacity: 0.3}
+      .enemy { transition: 0.1s; }
     </style>
   </head>
 <body>
@@ -123,9 +124,9 @@
               this.command = "wait";
               this.clinging = false;
               let forceWidth = 100;
-              let victim_el = collision(this.x + this.width +5, this.y, this, "enemy",forceWidth, this.height);
+              let victim_el = collision(this.x + this.width +5, this.y - 20, this, "enemy",forceWidth, this.height + 20);
               if (this.facing == -1) {
-                victim_el = collision(this.x - 10, this.y, this, "enemy", forceWidth ,this.height);
+                victim_el = collision(this.x - forceWidth - 5, this.y - 20, this, "enemy", forceWidth ,this.height + 20);
               }
               if (victim_el) { 
                 let victim = victim_el.sprite;
