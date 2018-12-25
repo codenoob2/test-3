@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: red; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: red; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -411,9 +411,9 @@
           if (player ==  player1) {
             let playerScreenx = player.x - document.body.scrollLeft;
             if (playerScreenx < 100) {
-              document.body.scrollLeft -= 25;
+              document.body.scrollLeft -= (100 - playerScreenx);
             } else if (playerScreenx > 1000) {
-              document.body.scrollLeft += 25;
+              document.body.scrollLeft += (1000 - playerScreenx);
             }
             let playerScreeny = player.y - document.body.scrollTop;
             if (playerScreeny < 100) {
