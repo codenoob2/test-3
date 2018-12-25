@@ -410,9 +410,9 @@
           if (player ==  player1) {
             let playerScreenx = player.x - document.body.scrollLeft;
             if (playerScreenx < 100) {
-              document.body.scrollLeft = player.x - 10;
+              document.body.scrollLeft -= 25;
             } else if (playerScreenx > 1000) {
-              document.body.scrollLeft = player.x - 1000 + 10;
+              document.body.scrollLeft += 25;
             }
             let playerScreeny = player.y - document.body.scrollTop;
             if (playerScreeny < 100) {
