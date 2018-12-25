@@ -226,6 +226,7 @@
         let coin2 = new Sprite(2400, 500, "coin2");
         let coin3 = new Sprite(7900, 950, "coin3");
     
+        let scrollAmount = 20;
         let LEFT_KEY = 37;
         let UP_KEY = 38;
         let RIGHT_KEY = 39;
@@ -410,9 +411,9 @@
           if (player ==  player1) {
             let playerScreenx = player.x - document.body.scrollLeft;
             if (playerScreenx < 100) {
-              document.body.scrollLeft -= 25;
+              document.body.scrollLeft -= scrollAmount;
             } else if (playerScreenx > 1000) {
-              document.body.scrollLeft += 25;
+              document.body.scrollLeft += scrollAmount;
             }
             let playerScreeny = player.y - document.body.scrollTop;
             if (playerScreeny < 100) {
