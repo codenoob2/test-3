@@ -90,10 +90,12 @@
             this.clinging = true;
           }
           
-          makeCoin(dx) {
+          makeCoin(x, y) {
             let coinelement = document.createElement("div");
             coinelement.classList.add('coin');
             coinelement.classList.add('solid');
+            coinelement.style.left = x + "px";
+            coinelement.style.top = y + "px";
             bg.appendChild(coinelement);
           }
         }
@@ -325,7 +327,7 @@
                  //for enemy
                 player.element.className = 'solid enemy';
                 player.hp = 100;
-                let 
+                makeCoin(player.x, player.y);
                }
                player.x = player.spawnx;
                player.y = player.spawny;
