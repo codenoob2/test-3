@@ -95,12 +95,12 @@
           decideAction() {
             if (this.command == "go left") {
               console.log("left");
-              this.dx -= 2;
+              this.dx -= 1.25;
               this.facing = -1;
               this.element.style.transform = "scaleX(1)";
             } else if (this.command == "go right") {
               console.log("right");
-              this.dx += 2;
+              this.dx += 1.25;
               this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
             } else if (this.command == "jump" && this.dy > -1 && this.dy < 1) {
@@ -411,9 +411,9 @@
           if (player ==  player1) {
             let playerScreenx = player.x - document.body.scrollLeft;
             if (playerScreenx < 100) {
-              document.body.scrollLeft -= (100 - playerScreenx);
+              document.body.scrollLeft -= 20;
             } else if (playerScreenx > 1000) {
-              document.body.scrollLeft += (playerScreenx - 1000);
+              document.body.scrollLeft += 20;
             }
             let playerScreeny = player.y - document.body.scrollTop;
             if (playerScreeny < 100) {
