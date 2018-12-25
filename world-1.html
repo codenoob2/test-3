@@ -94,12 +94,12 @@
           decideAction() {
             if (this.command == "go left") {
               console.log("left");
-              this.dx -= 1;
+              this.dx -= 2;
               this.facing = -1;
               this.element.style.transform = "scaleX(1)";
             } else if (this.command == "go right") {
               console.log("right");
-              this.dx += 1;
+              this.dx += 2;
               this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
             } else if (this.command == "jump" && this.dy > -1 && this.dy < 1) {
@@ -131,7 +131,7 @@
               }
               if (victim_el) { 
                 let victim = victim_el.sprite;
-                victim.dx += 100 * this.facing;
+                victim.dx += 1000 * this.facing;
                 victim.dy -= 15;
               }
               console.log(victim_el)
