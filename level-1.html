@@ -235,6 +235,13 @@
             // don't actually cling.
           }
         }
+        let bg = document.getElementById('bg');
+        let bgTop = bg.offsetTop +2;
+        let bgLeft = bg.offsetLeft +2;
+        let bgBottom = bgTop + bg.offsetHeight -4;
+        let bgRight = bgLeft + bg.offsetWidth -4;
+        document.body.scrollLeft = 0;
+
         let player1 = new Player(100, 100, "player1");
         player1.damage = 10;
         player1.knockback = 10;
@@ -366,15 +373,7 @@
           for (let i = 0; i < allSprites.length; i++) {
             playTurn(allSprites[i]);
           }
-        }, 50);
-        
-        let bg = document.getElementById('bg');
-        let bgTop = bg.offsetTop +2;
-        let bgLeft = bg.offsetLeft +2;
-        let bgBottom = bgTop + bg.offsetHeight -4;
-        let bgRight = bgLeft + bg.offsetWidth -4;
-        document.body.scrollLeft = 0;
-    
+        }, 50);    
     
         function playTurn(player) {
           if (player.hp <= 0) {
