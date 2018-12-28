@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: indianred; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -10,11 +10,11 @@
       .enemy { transition: 0.1s; }
       .player { transition: 0.08s; }
       .push { background: #ddd; position: absolute; opacity: 0.5; width: 100px; height: 105px; transition: 0.1s; }
-       #bg {transition: 2s; }
+       #bg {transition: 10s; }
     </style>
   </head>
 <body>
-  <div id="bg" style="width:1000px; height:800px; background:white; border:2px solid black; margin: 2px;">
+  <div id="bg" style="width:1200px; height:650px; background:white; border:2px solid black; margin: 2px;">
     <img id="player1" class="solid player" src="final-player1-skin-pixilart.png" style="position:absolute;" width=85 height=85>
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=80 height=80>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
@@ -259,9 +259,9 @@
           if (levelNum == 1) {
             player1.x = 100;
             player1.y = 100;   
-            makePlatform(250, 100, 300, 30);
+            makePlatform(320, 100, 300, 30);
             makePlatform(600, 140, 160, 30);
-            makePlatform(300, 420, 200, 30);
+            makePlatform(350, 420, 200, 30);
             makePlatform(500, 550, 300, 30);
             player1.makeCoin(350, 60);
             player1.makeCoin(500, 200);
