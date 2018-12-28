@@ -248,15 +248,35 @@
         player1.hp = 150
     
         function makeLevel(levelNum) {
-          let enemy1 = new Enemy(900, 100, "enemy1");
-          let enemy2 = new Enemy(1500, 100, "enemy2");
-          let enemy3 = new Enemy(1000, 100, "enemy3");
-          let enemy4 = new Enemy(3700, 60, "enemy4");
-          let enemy5 = new Enemy(3700, 400, "enemy5");
-          enemy5.hp = 1000;
-          let coin1 = new Sprite(400, 520, "coin1");
-          let coin2 = new Sprite(2400, 500, "coin2");
-          let coin3 = new Sprite(7900, 950, "coin3");
+          player1.dx = 0;
+          player1.dy = 0;
+          player1.ax = 0;
+          player1.ay = 0;
+          if (levelNum == 1) {
+            player1.x = 100;
+            player1.y = 100;            
+            let enemy1 = new Enemy(900, 100, "enemy1");
+            let enemy2 = new Enemy(1500, 100, "enemy2");
+            let enemy3 = new Enemy(1000, 100, "enemy3");
+            let enemy4 = new Enemy(3700, 60, "enemy4");
+            let enemy5 = new Enemy(3700, 400, "enemy5");
+            enemy5.hp = 1000;
+            let coin1 = new Sprite(400, 520, "coin1");
+            let coin2 = new Sprite(2400, 500, "coin2");
+            let coin3 = new Sprite(7900, 950, "coin3");
+          } else (levelNum == 2) {
+            player1.x = 100;
+            player1.y = 100;            
+            // TODO: Level 2
+          } else (levelNum == 3) {
+            player1.x = 100;
+            player1.y = 100;            
+            // TODO: Level 3
+          } else (levelNum == 4) {
+            player1.x = 100;
+            player1.y = 100;            
+            // TODO: Level 4
+          }            
         }
         makeLevel(1);
           
