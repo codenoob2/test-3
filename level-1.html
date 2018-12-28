@@ -10,26 +10,17 @@
       .enemy { transition: 0.1s; }
       .player { transition: 0.08s; }
       .push { background: #ddd; position: absolute; opacity: 0.5; width: 100px; height: 105px; transition: 0.1s; }
-       #bg {transition: 0.08s; }
+       #bg {transition: 1s; }
     </style>
   </head>
 <body>
-  <div id="bg" style="width:1000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
+  <div id="bg" style="width:1000px; height:800px; background:white; border:2px solid black; margin: 2px;">
     <img id="player1" class="solid player" src="final-player1-skin-pixilart.png" style="position:absolute;" width=85 height=85>
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=80 height=80>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
     <img id="enemy3" class="solid enemy" src="pixil-frame-0 (1).png" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
     <img id="enemy4" class="solid enemy" src="dasher-pixilart (1).png" style="position:absolute; left: 3700px; top: 600px"width=30px height=28px>
     <img id="enemy5" class="solid enemy" src="totality-pixilart.png" style="position:absolute; left : 3700px; top: 800px"width=120px height=120px>
-    
-    <div class="plat solid" style="top:600px; left:250px; width:300px; height:30px;"></div>
-    <div class="plat solid" style="top:510px; left:600px; width:160px; height:30px;"></div>
-    <div class="plat solid" style="top:520px; left:900px; width:400px; height:30px;"></div>
-    <div class="plat solid" style="top:530px; left:1800px; width:400px; height:30px;"></div>
-    
-    <div id="coin1" class="coin" style="top:520px; left:400px;"></div>
-    <div id="coin2" class="coin" style="top:500px; left:600px;"></div>
-    <div id="coin3" class="coin" style="top:950px; left:900px;"></div>
   </div> <!-- end bg -->
   
   <p id="player1_debug"></p>
@@ -259,6 +250,8 @@
         }
     
         function makeLevel(levelNum) {
+          bg.style.background = "#666";
+          setTimeout(function () { bg.style.background = "#fff"; }, 1000);
           player1.dx = 0;
           player1.dy = 0;
           player1.ax = 0;
@@ -266,10 +259,13 @@
           if (levelNum == 1) {
             player1.x = 100;
             player1.y = 100;   
-            makePlatform(250, 600, 300, 30);
-            makePlatform(600, 510, 160, 30);
-            makePlatform(300, 520, 200, 30);
-            makePlatform(500, 600, 300, 30);
+            makePlatform(250, 100, 300, 30);
+            makePlatform(600, 140, 160, 30);
+            makePlatform(300, 420, 200, 30);
+            makePlatform(500, 550, 300, 30);
+            player1.makeCoin(350, 60);
+            player1.makeCoin(500, 200);
+            player1.makeCoin(500, 600);
 
             let enemy1 = new Enemy(900, 100, "enemy1");
             let enemy2 = new Enemy(1500, 100, "enemy2");
