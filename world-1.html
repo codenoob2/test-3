@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: cyan; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -465,15 +465,18 @@
             player.ay = player.ay + 0.05;
           }
           
-          let touched_coin = collision(player.x, player.y, player, "coin");
-          if (touched_coin) {
-              console.log("got coin");
-              console.log(player);
-              player.gold += 1;
-              touched_coin.parentNode.removeChild(touched_coin);
-              setTimeout(function () {
-                player.makeCoin(Math.random() * 1000, 30) 
-              }, 6000);
+          let playerClasses = player.element.classList;
+          if (playerClasses.contains("player") || playerClasses.contains("enemy")) {
+            let touched_coin = collision(player.x, player.y, player, "coin");
+            if (touched_coin) {
+                console.log("got coin");
+                console.log(player);
+                player.gold += 1;
+                touched_coin.parentNode.removeChild(touched_coin);
+                setTimeout(function () {
+                  player.makeCoin(Math.random() * 1000, 30) 
+                }, 6000);
+            }
           }
         }      
         
