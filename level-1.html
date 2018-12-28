@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: olive; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: coral; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -251,7 +251,7 @@
     
         function makeLevel(levelNum) {
           bg.style.background = "#666";
-          setTimeout(function () { bg.style.background = "#fff"; }, 3000);
+          setTimeout(function () { bg.style.background = "#fff"; }, 20000);
           player1.dx = 0;
           player1.dy = 0;
           player1.ax = 0;
@@ -259,7 +259,7 @@
           if (levelNum == 1) {
             player1.x = 100;
             player1.y = 100;   
-            makePlatform(320, 100, 300, 30);
+            makePlatform(320, 200, 300, 30);
             makePlatform(450, 140, 160, 30);
             makePlatform(350, 410, 200, 30);
             makePlatform(500, 430, 300, 30);
@@ -467,21 +467,6 @@
             state = "blocked";
           }
           
-          if (player ==  player1) {
-            let playerScreenx = player.x - document.body.scrollLeft;
-            if (playerScreenx < 100) {
-              document.body.scrollLeft -= 20;
-            } else if (playerScreenx > 1000) {
-              document.body.scrollLeft += 20;
-            }
-            let playerScreeny = player.y - document.body.scrollTop;
-            if (playerScreeny < 100) {
-              document.body.scrollTop -= 5;
-            } else if (playerScreeny > 500) {
-              document.body.scrollTop += 5;
-            }
-          }
-          
           player.element.style.left = player.x + "px";
           player.element.style.top = player.y + "px";
           player.displayAction();
@@ -506,7 +491,7 @@
                 player.gold += 1;
                 touched_coin.parentNode.removeChild(touched_coin);
                 setTimeout(function () {
-                  player.makeCoin(Math.random() * 8000, 30) 
+                  player.makeCoin(Math.random() * 1200, 30) 
                 }, 6000);
             }
           }
