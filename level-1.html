@@ -10,7 +10,7 @@
       .enemy { transition: 0.1s; }
       .player { transition: 0.08s; }
       .push { background: #ddd; position: absolute; opacity: 0.5; width: 100px; height: 105px; transition: 0.1s; }
-       #bg {transition: 1s; }
+       #bg {transition: 2s; }
     </style>
   </head>
 <body>
@@ -251,7 +251,7 @@
     
         function makeLevel(levelNum) {
           bg.style.background = "#666";
-          setTimeout(function () { bg.style.background = "#fff"; }, 1000);
+          setTimeout(function () { bg.style.background = "#fff"; }, 3000);
           player1.dx = 0;
           player1.dy = 0;
           player1.ax = 0;
