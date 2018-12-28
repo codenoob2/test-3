@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: maroon; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -14,7 +14,7 @@
     </style>
   </head>
 <body>
-  <div id="bg" style="width:8000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
+  <div id="bg" style="width:1000px; height:1000px; background:white; border:2px solid black; margin: 2px;">
     <img id="player1" class="solid player" src="final-player1-skin-pixilart.png" style="position:absolute;" width=85 height=85>
     <img id="enemy1" class="solid enemy" src="neverwinter-wars-testenemy1-pixilart.png" style="position:absolute; left:1100px; top:250px"width=80 height=80>
     <img id="enemy2" class="solid enemy" src="magic-carpet-animation-pixilart.gif" style="position:absolute; left:2800px; top:250px"width=40px height=40px>
@@ -26,17 +26,10 @@
     <div class="plat solid" style="top:510px; left:600px; width:160px; height:30px;"></div>
     <div class="plat solid" style="top:520px; left:900px; width:400px; height:30px;"></div>
     <div class="plat solid" style="top:530px; left:1800px; width:400px; height:30px;"></div>
-    <div class="plat solid" style="top:540px; left:2400px; width:900px; height:30px;"></div>
-    <div class="plat solid" style="top:550px; left:2400px; width:30px; height:200px;"></div>
-    <div class="plat solid" style="top:560px; left:6300px; width:400px; height:20px;"></div>
-    <div class="plat solid" style="top:570px; left:5600px; width:300px; height:20px;"></div>
-    <div class="plat solid" style="top:580px; left:4900px; width:30px; height:200px;"></div>
-    <div class="plat solid" style="top:590px; left:7200px; width:30px; height:300px;"></div>
-    <div class="plat solid" style="top:600px; left:3700px; width:400px; height:20px;"></div>
     
     <div id="coin1" class="coin" style="top:520px; left:400px;"></div>
-    <div id="coin2" class="coin" style="top:500px; left:2400px;"></div>
-    <div id="coin3" class="coin" style="top:950px; left:7900px;"></div>
+    <div id="coin2" class="coin" style="top:500px; left:600px;"></div>
+    <div id="coin3" class="coin" style="top:950px; left:900px;"></div>
   </div> <!-- end bg -->
   
   <p id="player1_debug"></p>
@@ -246,6 +239,17 @@
         player1.damage = 10;
         player1.knockback = 10;
         player1.hp = 150
+
+        function makePlatform(x, y, w, h) {
+            let platformEl = document.createElement("div");
+            platformEl.classList.add('plat');
+            platformEl.classList.add('solid');
+            platformEl.style.left = x + 'px';
+            platformEl.style.top = y + 'px';
+            platformEl.style.width = w + 'px';
+            platformEl.style.height = h + 'px';
+            bg.appendChild(platformEl);
+        }
     
         function makeLevel(levelNum) {
           player1.dx = 0;
@@ -254,7 +258,12 @@
           player1.ay = 0;
           if (levelNum == 1) {
             player1.x = 100;
-            player1.y = 100;            
+            player1.y = 100;   
+            makePlatform(250, 600, 300, 30);
+            makePlatform(600, 510, 160, 30);
+            makePlatform(300, 520, 200, 30);
+            makePlatform(500, 600, 300, 30);
+
             let enemy1 = new Enemy(900, 100, "enemy1");
             let enemy2 = new Enemy(1500, 100, "enemy2");
             let enemy3 = new Enemy(1000, 100, "enemy3");
