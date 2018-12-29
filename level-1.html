@@ -499,12 +499,14 @@
                 }, 6000);
             }
           }
+          
+          if (player == player1) {
+            if (collision(player.x, player.y, player, "door")){
+              makeLevel(2);
+            }
+          }
         }     
-        if (player == player1) {
-         if (collision(player.x, player.y, player, "door")){
-          makeLevel(2);
-         }
-        }
+        
           
           
         function collision(x, y, myself, opt_className, opt_width, opt_height) {
