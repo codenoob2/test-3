@@ -253,7 +253,6 @@
         }
     
         function makeLevel(levelNum) {
-          ///only about half of coins, rocks and platforms are being deleted upon advancing the level number. ?
           bg.style.background = "#666";
           setTimeout(function () { bg.style.background = "#fff"; }, 12000);
           player1.dx = 0;
@@ -262,17 +261,17 @@
           player1.ay = 0;
           
           let plats = document.getElementsByClassName("plat");
-          while (0 < plats.length;) {
+          while (0 < plats.length) {
             let plat = plats[0];
             bg.removeChild(plat);
           }
           let rocks = document.getElementsByClassName("rock");
-          while (0 < rocks.length;) {
+          while (0 < rocks.length) {
             let rock = rocks[0];
             bg.removeChild(rock);
           }
           let coins = document.getElementsByClassName("coin");
-          while (0 < coins.length;) {
+          while (0 < coins.length) {
             let coin = coins[0];
             bg.removeChild(coin);
             //TODO: remove Coin from Sprite list
