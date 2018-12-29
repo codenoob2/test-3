@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: yellowgreen; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: black; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -252,6 +252,7 @@
         }
     
         function makeLevel(levelNum) {
+          ///only about half of coins, rocks and platforms are being deleted upon advancing the level number. ?
           bg.style.background = "#666";
           setTimeout(function () { bg.style.background = "#fff"; }, 12000);
           player1.dx = 0;
