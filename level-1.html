@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Official Game </title>
      <style>
-      .plat { background: orangered; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: mud; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -23,7 +23,7 @@
     <img id="enemy4" class="solid enemy" src="dasher-pixilart (1).png" style="position:absolute; left: 3700px; top: 600px"width=30px height=28px>
     <img id="enemy5" class="solid enemy" src="totality-pixilart.png" style="position:absolute; left : 3700px; top: 800px"width=120px height=120px>
     
-    <img id="door1" class="door" src="door-pixilart.png" style="position:absolute; left:1000px; top:550px"width=150px height=150px>
+    <img id="door1" class="door" src="door-pixilart.png" style="position:absolute; left:1150px; top:480px"width=150px height=150px>
   </div> <!-- end bg -->
   
   <p id="player1_debug"></p>
@@ -272,7 +272,6 @@
 
             let enemy1 = new Enemy(300, 180, "enemy1");
             
-            let door1 = new door(1000, 550, "door1"); 
           } else if (levelNum == 2) {
             player1.x = 100;
             player1.y = 100;            
