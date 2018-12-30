@@ -259,7 +259,7 @@
           player1.dy = 0;
           player1.ax = 0;
           player1.ay = 0;
-          
+       
           let plats = document.getElementsByClassName("plat");
           while (0 < plats.length) {
             let plat = plats[0];
@@ -288,7 +288,8 @@
             player1.makeCoin(500, 600);
 
             let enemy1 = new Enemy(300, 180, "enemy1");
-            
+            bg.removeChild(enemy2.element, enemy3.element, enemy4.element, enemy5.element);
+          
           } else if (levelNum == 2) {
             player1.x = 100;
             player1.y = 100;            
