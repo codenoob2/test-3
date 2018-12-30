@@ -550,7 +550,11 @@
                 makeLevel(3);
               }
             }
-          
+          if (player == player1 && player.gold > 40) {
+              if (collision(player.x, player.y, player, "door")){
+                makeLevel(4);
+              }
+            }
         }     
         
           
