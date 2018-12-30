@@ -190,6 +190,17 @@
             rock.dy = -15;
             rock.dx = dx;
           }
+          if (player == player1 && player.gold > 10 && levelNum == 1) {
+            if (collision(player.x, player.y, player, "door")){
+              makeLevel(2);
+            }
+          }
+          
+          if (player == player1 && player.gold > 25 && levelNum == 2) {
+            if (collision(player.x, player.y, player, "door")){
+              makeLevel(3);
+            }
+          }
         }
         class Enemy extends Sprite {
           decideAction() {
@@ -260,17 +271,6 @@
           player1.ax = 0;
           player1.ay = 0;
           
-          if (player == player1 && player.gold > 10 && levelNum == 1) {
-            if (collision(player.x, player.y, player, "door")){
-              makeLevel(2);
-            }
-          }
-          
-          if (player == player1 && player.gold > 25 && levelNum == 2) {
-            if (collision(player.x, player.y, player, "door")){
-              makeLevel(3);
-            }
-          }
           
           let plats = document.getElementsByClassName("plat");
           while (0 < plats.length) {
