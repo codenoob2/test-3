@@ -290,11 +290,7 @@
 
             let enemy1 = new Enemy(300, 180, "enemy1");
            
-            if (player == player1 && player.gold > 10 &&) {
-              if (collision(player.x, player.y, player, "door")){
-                makeLevel(2);
-              }
-            }
+            
        
           } else if (levelNum == 2) {
             player1.x = 100;
@@ -309,11 +305,6 @@
 
             // TODO: Level 2
             
-            if (player == player1 && player.gold > 25) {
-              if (collision(player.x, player.y, player, "door")){
-                makeLevel(3);
-              }
-            }
         
           } else if (levelNum == 3) {
             player1.x = 100;
@@ -540,7 +531,16 @@
                 }, 6000);
             }
           }
-          
+          if (player == player1 && player.gold > 10 &&) {
+              if (collision(player.x, player.y, player, "door")){
+                makeLevel(2);
+              }
+            }
+            if (player == player1 && player.gold > 25) {
+              if (collision(player.x, player.y, player, "door")){
+                makeLevel(3);
+              }
+            }
           
         }     
         
