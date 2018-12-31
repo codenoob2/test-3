@@ -2,7 +2,7 @@
   <head>
     <title> Level 1 </title>
      <style>
-      .plat { background: tan; position: absolute; border-radius: 8px; border: solid grey 2px;}
+      .plat { background: forestgreen; position: absolute; border-radius: 8px; border: solid grey 2px;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -10,7 +10,7 @@
       .enemy { transition: 0.1s; }
       .player { transition: 0.08s; }
       .push { background: #ddd; position: absolute; opacity: 0.5; width: 100px; height: 105px; transition: 0.1s; }
-       #bg {transition: 0.5s; }
+       #bg {transition: 0.2s; }
       .door { position: absolute }
     </style>
   </head>
@@ -23,7 +23,7 @@
     <img id="enemy4" class="solid enemy" src="dasher-pixilart (1).png" style="position:absolute; left: 3700px; top: 600px"width=30px height=28px>
     <img id="enemy5" class="solid enemy" src="totality-pixilart.png" style="position:absolute; left : 3700px; top: 800px"width=120px height=120px>
     -->
-    <img id="door1" class="door" src="door-pixilart.png" style="position:absolute; left:1160px; top:490px; display: none"width=150px height=150px>
+    <img id="door1" class="door" src="door-pixilart.png" style="position:absolute; left:1160px; top:490px; display:none" width=150px height=150px>
   </div> <!-- end bg -->
   
   <p id="player1_debug"></p>
@@ -256,7 +256,7 @@
     
         function makeLevel(levelNum) {
           bg.style.background = "#666";
-          setTimeout(function () { bg.style.background = "#fff"; }, 12000);
+          setTimeout(function () { bg.style.background = "#fff"; }, 120);
           player1.dx = 0;
           player1.dy = 0;
           player1.ax = 0;
@@ -264,7 +264,7 @@
           let titleElement = document.querySelector("title");
           titleElement.innerText = "Level " + levelNum;
           let door = document.querySelector(".door");
-          door.style.display = "none"
+          door.style.display = "none";
           
           let plats = document.getElementsByClassName("plat");
           while (0 < plats.length) {
@@ -551,7 +551,8 @@
           }
           if (player == player1 && player.gold >= 10 && player.gold < 25 && levelNum == 1) {
             if (collision(player.x, player.y, player, "door")){
-              makeLevel(2);
+              levelNum = 2;
+              makeLevel(levelNum);
             }
           }
           if (player1.gold >= 25 && levelNum == 2) {
@@ -560,7 +561,8 @@
           }
           if (player == player1 && player.gold >= 25 && player.gold < 40 && levelNum == 2) {
             if (collision(player.x, player.y, player, "door")){
-              makeLevel(3);
+              levelNum = 3;
+              makeLevel(levelNum);
             }
           }
           if (player1.gold >= 40 && levelNum ==3) {
@@ -569,7 +571,8 @@
           }
           if (player == player1 && player.gold >= 40 && levelNum == 3) {
             if (collision(player.x, player.y, player, "door")){
-              makeLevel(4);
+              levelNum = 4;
+              makeLevel(levelNum);
             }
           }
           
