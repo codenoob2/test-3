@@ -570,7 +570,7 @@
               makeLevel(levelNum);
             }
           }
-          if (player1.gold >= 40 && levelNum ==3) {
+          if (player1.gold >= 40 && levelNum == 3) {
             let door = document.querySelector(".door");
             door.style.display = "";
           }
@@ -580,7 +580,11 @@
               makeLevel(levelNum);
             }
           }
-          if (player == enemy1 && player.gold >= 100 && levelNum == 4) {
+          if (enemy1.gold >= 40 && levelNum == 4) {
+            let door = document.querySelector(".door");
+            door.style.display = "";
+          }
+          if (player == enemy1 && player.gold >= 40 && levelNum == 4) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 100;
               makeLevel(levelNum);
