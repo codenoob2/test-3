@@ -54,8 +54,8 @@
             platformEl.style.width = w + 'px';
             platformEl.style.height = h + 'px';
             bg.appendChild(platformEl);
-            
-            this.element.sprite = platformEl;
+            this.element = platformEl;
+            this.element.sprite = this;
             allPlats.push(this);
           }
           
