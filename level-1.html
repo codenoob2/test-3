@@ -209,10 +209,10 @@
               this.element.src = "final-aurum-skin-pixilart.png";
             } else if (this.command == "attack" && this.state != "attacking") {
               this.element.src = "wooden-armor-attack-1-pixilart (1).png";
-              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png";  }, 50000);
-              window.setTimeout(function () { player1.element.src = "final-attack1-skin-pixilart.png"; player1.states = "normal"; }, 100000);
-              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png"; player1.states = "normal"; }, 150000);
-              window.setTimeout(function () { player1.element.src = "final-player1-skin-pixilart.png"; player1.states = "normal"; }, 200000);
+              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png";  }, 50);
+              window.setTimeout(function () { player1.element.src = "final-attack1-skin-pixilart.png"; player1.states = "normal"; }, 100);
+              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png"; player1.states = "normal"; }, 150);
+              window.setTimeout(function () { player1.element.src = "final-player1-skin-pixilart.png"; player1.states = "normal"; }, 200);
               let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (this.facing == -1) {
                 victim_el = collision(this.x - 10, this.y + this.height/2, this, "enemy", 5 ,5);
