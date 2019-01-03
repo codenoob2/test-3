@@ -2,7 +2,7 @@
   <head>
     <title> Level 1 </title>
      <style>
-      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -209,18 +209,10 @@
               this.element.src = "final-aurum-skin-pixilart.png";
             } else if (this.command == "attack" && this.state != "attacking") {
               this.element.src = "final-attack1-skin-pixilart (2).png";
-              window.setTimeout(function () { 
-                player1.element.src = "final-attack2-skin-pixilart.png";  
-                window.setTimeout(function () { 
-                  player1.element.src = "final-attack1-skin-pixilart (2).png";
-                  window.setTimeout(function () { 
-                    player1.element.src = "final-attack2-skin-pixilart.png";
-                    window.setTimeout(function () { 
-                      player1.element.src = "final-player1-skin-pixilart.png"; player1.state = "normal"; 
-                    }, 100);
-                  }, 200);
-                }, 100);
-              }, 200);
+              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png";  }, 200);
+              window.setTimeout(function () { player1.element.src = "final-attack1-skin-pixilart (2).png"; }, 300);
+              window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png"; }, 500);
+              window.setTimeout(function () { player1.element.src = "final-player1-skin-pixilart.png"; player1.state = "normal"; }, 600);
               let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "enemy",5 ,5);
               if (this.facing == -1) {
                 victim_el = collision(this.x - 10, this.y + this.height/2, this, "enemy", 5 ,5);
