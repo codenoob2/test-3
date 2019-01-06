@@ -2,7 +2,7 @@
   <head>
     <title> Level 1 </title>
      <style>
-      .plat { background: darkblue; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: slategray; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -229,6 +229,8 @@
               // Do nothing, and don't log it as an unknown command.
             } else if (this.command == "rich") {
               this.gold += 10;
+            } else if (this.command == "heal") {
+              this.hp += 5;
             } else {
               console.log("unknown command: " + this.command)
               }
@@ -462,9 +464,11 @@
             console.log("Aurum");
             player1.command = "Aurum";
           } else if (e.key == "r") {
-            console.log("rich")
+            console.log("rich");
             player1.command = "rich";
-          }
+          } else if (e.key == ";") {
+            console.log("heal");
+            player1.commmand = "heal";
         });
                                   
         document.addEventListener("keyup", function(e) {
@@ -484,6 +488,8 @@
           } else if (e.key == " ") {
             player1.command = "wait"; 
           } else if (e.key == "r") {
+            player1.command = "wait";
+          } else if (e.key == ";") {
             player1.command = "wait";
           }
         });
