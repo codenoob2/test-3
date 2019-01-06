@@ -230,7 +230,7 @@
             } else if (this.command == "rich") {
               this.gold += 10;
             } else if (this.command == "heal") {
-              this.hp = 90;
+              this.hp += 5;
             } else {
               console.log("unknown command: " + this.command)
               }
@@ -468,7 +468,7 @@
             player1.command = "rich";
           } else if (e.key == "h") {
             console.log("heal");
-            player1.commmand = "heal";
+            player1.command = "heal";
           }
         });
                                   
