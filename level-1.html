@@ -236,9 +236,6 @@
               }
           }  // end decideAction
           
-          if (this.hp >= 150) {
-            this.command = "wait";
-          }
           makeRock(dx) {
             let rockelement = document.createElement("div");
             rockelement.classList.add('rock');
@@ -532,6 +529,11 @@
                player.clinging = false;
             }, 6000);
             player.hp = 100;
+          } else if (player == player1) {
+              if (player.hp >= 150) {
+                this.command = "wait"
+                this.state = "normal"
+              }
           } else { 
             player.decideAction();
           }
