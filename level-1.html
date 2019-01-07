@@ -529,14 +529,8 @@
                player.clinging = false;
             }, 6000);
             player.hp = 100;
-          } else if (player == player1 && player.command = "heal") {
-              if (player.hp >= 150) {
-                this.command = "wait"
-                this.state = "normal"
-              }
-              else {
-                //do nothing
-              }
+          } else if (player.hp > 150) {
+              player.hp -= 1;
           } else { 
             player.decideAction();
           }
