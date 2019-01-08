@@ -404,12 +404,17 @@
             player1.makeCoin(100, 30);
             player1.makeCoin(300, 30);
             
+          } else if (levelNum == 5) {
+            player1.x = 100;
+            player1.y = 100;
+            new Plat(400, 120, 300, 45, 700, 420, 0.5)
+            bg.background.style = "red"; 
+            
           } else if (levelNum == 100) {
             player1.x = 100;
             player1.y = 100;
             new Plat(Math.random * 1200, Math.random * 1200, Math.random * 1200, Math.random * 1200 );
-            
-          }
+
         }
         makeLevel(1);
           
@@ -667,6 +672,16 @@
           if (player == player1 && player.gold >= 40 && levelNum == 3) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 4;
+              makeLevel(levelNum);
+            }
+          }
+          if (player1.gold >= 60 && levelNum == 4) {
+            let door = document.querySelector(".door");
+            door.style.display = "";
+          }
+          if (player == player1 && player.gold >= 60 && levelNum == 4) {
+            if (collision(player.x, player.y, player, "door")){
+              levelNum = 5;
               makeLevel(levelNum);
             }
           }
