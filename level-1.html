@@ -407,14 +407,14 @@
           } else if (levelNum == 5) {
             player1.x = 100;
             player1.y = 100;
-            new Plat(400, 120, 300, 45, 700, 420, 0.5)
-            bg.background.style = "red"; 
+            new Plat(400, 120, 300, 45, 700, 420, 0.5); 
+            player1.makeCoin(Math.random * 1200, 30);
             
           } else if (levelNum == 100) {
             player1.x = 100;
             player1.y = 100;
             new Plat(Math.random * 1200, Math.random * 1200, Math.random * 1200, Math.random * 1200 );
-
+            }
         }
         makeLevel(1);
           
