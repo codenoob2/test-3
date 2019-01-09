@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Level 1 </title>
      <style>
-      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: khaki; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -340,7 +340,7 @@
           player1.ax = 0;
           player1.ay = 0;
           let titleElement = document.querySelector("title");
-          titleElement.innerText = "Level " + levelNum;
+          titleElement.innerText = "Neverwinter Arena Level " + levelNum;
           let door = document.querySelector(".door");
           door.style.display = "none";
           
@@ -419,6 +419,23 @@
             new Plat(60, 120, 300, 45, 480, 600, 0.5);
             new Plat(400, 650, 300, 45, 750, 220, 0.25);
             player1.makeCoin(Math.random * 1200, 30);
+            
+           } else if (levelNum == 7) {
+            player1.x = 100;
+            player1.y = 100;
+            new Plat(270, 140, 350, 30, 310, 100, 0.5);
+            new Plat(60, 120, 350, 65, 470, 620, 0.5);
+            new Plat(400, 680, 400, 65, 750, 220, 0.25);
+            player1.makeCoin(Math.random * 1200, 30); 
+             
+           } else if (levelNum == 8) {
+            player1.x = 100;
+            player1.y = 100;
+            new Plat(260, 140, 350, 30, 310, 100, 0.5);
+            new Plat(60, 120, 350, 75, 470, 620, 0.5);
+            new Plat(400, 680, 430, 65, 750, 220, 0.25);
+            player1.makeCoin(Math.random * 1200, 30); 
+            
           
           } else if (levelNum == 100) {
             player1.x = 100;
@@ -702,6 +719,26 @@
           if (player == player1 && player.gold >= 80 && levelNum == 5) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 6;
+              makeLevel(levelNum);
+            }
+          }
+          if (player1.gold >= 90 && levelNum == 6) {
+              let door = document.querySelector(".door");
+              door.style.display = "";
+          }
+          if (player == player1 && player.gold >= 90 && levelNum == 6) {
+            if (collision(player.x, player.y, player, "door")){
+              levelNum = 7;
+              makeLevel(levelNum);
+            }
+          }
+          if (player1.gold >= 100 && levelNum == 7) {
+              let door = document.querySelector(".door");
+              door.style.display = "";
+          }
+          if (player == player1 && player.gold >= 100 && levelNum == 7) {
+            if (collision(player.x, player.y, player, "door")){
+              levelNum = 8;
               makeLevel(levelNum);
             }
           }
