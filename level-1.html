@@ -231,13 +231,13 @@
               this.gold += 10;
             } else if (this.command == "heal") {
               this.hp += 1;
-            } else if (this.command == "something")
+            } else if (this.command == "something") {
               this.dx += 100; 
               this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
             } else {
               console.log("unknown command: " + this.command)
-              }
+            }
           }  // end decideAction
           
           makeRock(dx) {
