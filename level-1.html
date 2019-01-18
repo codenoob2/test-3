@@ -181,7 +181,7 @@
               this.clinging = false;
             } else if (this.dx > 90) {
               this.dx = -100;
-            } else if (this.dx > -90) {
+            } else if (this.dx < -90) {
               this.dx = 100;
             } else if (this.command == "push") {
               console.log("push");
