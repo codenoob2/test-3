@@ -1,9 +1,8 @@
 <html>
   <head>
-    //Please do not view source code. Thank you! -The Developers
     <title> Neverwinter Arena Level 1 </title>
      <style>
-      .plat { background: gold; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid black 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -180,6 +179,10 @@
               this.state = "floating";
               this.command = "wait";
               this.clinging = false;
+            } else if (this.dx > 90) {
+              this.dx = -100;
+            } else if (this.dx > -90) {
+              this.dx = 100;
             } else if (this.command == "push") {
               console.log("push");
               this.state = "floating";
