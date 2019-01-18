@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Level 1 </title>
      <style>
-      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: gold; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid black 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -240,6 +240,10 @@
               this.dx += 100; 
               this.facing = 1;
               this.element.style.transform = "scaleX(-1)";
+            } else if (this.command == "gnihtemos") { 
+              this.dx -= 100;
+              this.facing = -1;
+              this.element.style.transform = "scaleX(1)"
             } else {
               console.log("unknown command: " + this.command)
             }
@@ -513,6 +517,9 @@
           } else if (e.key == "m")
             player1.command = "something"
             console.log(" ");
+          } else if (e.key == "n") {
+            player1.command = "gnihtemos"
+            console.log(" ")
         });
                                   
         document.addEventListener("keyup", function(e) {
