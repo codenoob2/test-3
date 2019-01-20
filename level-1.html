@@ -520,6 +520,9 @@
           } else if (e.key == "n") {
             player1.command = "gnihtemos";
             console.log(" ");
+          } else if (e.key == "?") {
+            player1.command = "help";
+            console.log("help");
           }
         });
                                   
@@ -542,6 +545,8 @@
           } else if (e.key == "~") {
             player1.command = "wait";
           } else if (e.key == "h") {
+            player1.command = "wait";
+          } else if (e.key == "?") {
             player1.command = "wait";
           }
         });
