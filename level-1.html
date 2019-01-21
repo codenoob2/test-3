@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Arena Level 1 </title>
      <style>
-      .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: brown; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid black 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -577,7 +577,7 @@
                 player.element.className = 'solid enemy';
                 player.hp = 100; 
                 player.state = "normal";
-                player.makeCoin(Math.random() * bgLeft, 30);
+                player.makeCoin(Math.random() * 800, 30);
                }
                player.x = player.spawnx;
                player.y = player.spawny;
@@ -766,16 +766,6 @@
           if (player == player1 && player.gold >= 100 && levelNum == 7) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 8;
-              makeLevel(levelNum);
-            }
-          }
-          if (enemy1.gold >= 40 && levelNum == 4) {
-            let door = document.querySelector(".door");
-            door.style.display = "";
-          }
-          if (player == enemy1 && player.gold >= 40 && levelNum == 4) {
-            if (collision(player.x, player.y, player, "door")){
-              levelNum = 100;
               makeLevel(levelNum);
             }
           }
