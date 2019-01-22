@@ -197,13 +197,15 @@
                 forceY = this.y - 20;
               }
               this.makePush(forceX, forceY);
-              let victim_el = collision(forceX, forceY, this, "enemy",forceWidth, this.height + 20);
+              let victim_el = collision(forceX, forceY, this, "enemy", "rock", forceWidth, this.height + 20);
               
               if (victim_el) { 
                 let victim = victim_el.sprite;
                 victim.dx += 80 * this.facing;
                 victim.dy -= 15;
-                victim.hp -= this.damage - 5;
+                if (victim_el == "enemy") {
+                  victim.hp -= this.damage - 5;
+                }
               }
               console.log(victim_el)
             } else if (this.command == "jump") {
