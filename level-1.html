@@ -4,7 +4,7 @@
      <style>
       .plat { background: blue; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: #ddd; position: absolute; border-radius: 20px; opacity: 0.3}
-      .coin { background: green; position: absolute; border-radius: 40px; border: solid black 2px; width: 30px; height: 30px; opacity: 0.3}
+      .coin { background: gold; position: absolute; border-radius: 40px; border: solid black 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
       .rock { background: grey; position: absolute; border-radius: 10px; border: solid black 2px; width: 20px; height: 20px; opacity: 0.3}
       .enemy { transition: 0.1s; }
@@ -214,8 +214,8 @@
               this.element.src = "final-player1-skin-pixilart.png";
             } else if (this.command == "skin2") {
               window.setTimeout(function () { player1.element.src = "lizardfolk-warrior-(npc)-pixilart.png"; }, 2000);
-            } else if (this.command == "Aurum") {
-              this.element.src = "final-aurum-skin-pixilart.png";
+            } else if (this.command == "Argentum") {
+              this.element.src = "argentum-ii-pixilart.png";
             } else if (this.command == "attack" && this.state != "attacking") {
               this.element.src = "final-attack1-skin-pixilart (2).png";
               window.setTimeout(function () { player1.element.src = "final-attack2-skin-pixilart.png";  }, 200);
@@ -511,15 +511,9 @@
           } else if (e.key == "f") {
             console.log("push");
             player1.command = "push";
-          } else if (e.key == "1") {
-            console.log ("skin1");
-            player1.command = "skin1";
-          } else if (e.key == "2") {
-            console.log("skin2");
-            player1.command = "skin2";
           } else if (e.key == "0") {
-            console.log("Aurum");
-            player1.command = "Aurum";
+            console.log("Argentum");
+            player1.command = "Argentum";
           } else if (e.key == "~") {
             console.log("rich");
             player1.command = "rich";
@@ -536,6 +530,7 @@
             player1.command = "help";
             console.log("help");
             alert ("Controls: W = jump, A = go left, D = go right, K = attack, F =  force push, arrow keys = tutorial");
+          
           }
         });
                                   
